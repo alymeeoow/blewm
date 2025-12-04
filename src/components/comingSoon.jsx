@@ -142,9 +142,9 @@ const ComingSoon = () => {
       width: '100%',
     },
     comingSoonText: {
-      fontFamily: "'Avenir Medium', 'Segoe UI', 'Arial', sans-serif",
+      fontFamily: "'LTMesuem', 'Segoe UI', 'Arial', sans-serif",
       fontSize: isSmallMobile ? '36px' : isMobile ? '48px' : windowWidth <= 1024 ? '72px' : '96px',
-      fontWeight: '700',
+      fontWeight: 'bold',
       color: '#224888',
       margin: '0',
       textShadow: '0 2px 8px rgba(34, 72, 136, 0.2)',
@@ -277,16 +277,12 @@ const ComingSoon = () => {
    
         <div style={styles.textContainer}>
           <h1 style={styles.comingSoonText}>
-            Coming Soon
+           COMING SOON!
           </h1>
         </div>
         
     
-        <div style={styles.progressDots}>
-          <div style={{...styles.progressDot, animationDelay: '0s'}}></div>
-          <div style={{...styles.progressDot, animationDelay: '0.4s'}}></div>
-          <div style={{...styles.progressDot, animationDelay: '0.8s'}}></div>
-        </div>
+        
       </div>
     </div>
   );
