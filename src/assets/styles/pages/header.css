@@ -1,0 +1,849 @@
+/* Avenir Medium Font Face */
+@font-face {
+  font-family: 'Avenir Medium';
+  src: url('../../../../font/AvenirMedium/avenirMedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Avenir Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Apply Avenir Medium to all header text elements */
+.header,
+.nav-links a,
+.dropdown-btn,
+.learn-more-btn,
+.book-now-btn,
+.dropdown-menu a,
+.learn-more-menu a,
+.book-now-dropdown-menu a,
+.book-now-dropdown-menu button {
+  font-family: 'Avenir Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  padding: 10px 0;
+  background: rgba(255, 255, 255, 0.99);
+}
+
+/* Container */
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  min-height: 120px; /* Increased for 100px logo */
+}
+
+/* Logo Styles */
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  margin-right: 60px;
+  padding: 10px 0;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-icon {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+/* Navigation Links (Desktop) */
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin-left: 40px;
+  flex-wrap: nowrap;
+}
+
+/* Nav Link Items */
+.nav-links a {
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 6px;
+  position: relative;
+  transition: color 0.25s ease, opacity 0.25s ease;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+/* Remove focus outlines */
+.nav-links a:focus,
+.dropdown-btn:focus,
+.learn-more-btn:focus,
+.book-now-btn:focus,
+.menu-btn:focus {
+  outline: none;
+}
+
+/* Underline animation - for regular nav links */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #224888;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #224888;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: #224888;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Dropdown Container */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Desktop: Show dropdown on hover (1025px and above) */
+@media (min-width: 1025px) {
+  .dropdown-container:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .learn-more-dropdown:hover .learn-more-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .book-now-dropdown:hover .book-now-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown Button - Applied to ALL dropdown buttons including Learn More */
+.dropdown-btn,
+.learn-more-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 14px 7px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+/* FIXED: Consistent underline animation for all dropdown buttons */
+.dropdown-btn::after,
+.learn-more-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #224888;
+  transition: width 0.3s ease;
+}
+
+.dropdown-btn:hover,
+.dropdown-btn.active,
+.learn-more-btn:hover,
+.learn-more-btn.active {
+  color: #224888;
+}
+
+/* FIXED: Same width calculation for all dropdown buttons */
+.dropdown-btn:hover::after,
+.dropdown-btn.active::after,
+.learn-more-btn:hover::after,
+.learn-more-btn.active::after {
+  width: calc(100% - 26px); /* Same as other dropdown buttons */
+}
+
+/* Dropdown Icon */
+.dropdown-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+  margin-left: 2px;
+}
+
+.dropdown-icon.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -10px;
+  min-width: 260px;
+  background: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  padding: 18px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1001;
+  border: 1px solid rgba(34, 72, 136, 0.1);
+}
+
+/* Desktop: Show when parent is hovered or has active class (1025px and above) */
+@media (min-width: 1025px) {
+  .dropdown-container:hover .dropdown-menu,
+  .learn-more-dropdown:hover .learn-more-menu,
+  .book-now-dropdown:hover .book-now-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile/Tablet: Show when active class is present */
+@media (max-width: 1024px) {
+  .dropdown-menu.open,
+  .learn-more-menu.open,
+  .book-now-dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 14px 28px;
+  color: #555;
+  font-size: 14.5px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  border-bottom: none;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(34, 72, 136, 0.08);
+  color: #224888;
+  padding-left: 35px;
+}
+
+.dropdown-menu a::after {
+  display: none;
+}
+
+/* Learn More Dropdown */
+.learn-more-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+.learn-more-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -10px;
+  min-width: 260px;
+  background: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  padding: 18px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1001;
+  border: 1px solid rgba(34, 72, 136, 0.1);
+}
+
+.learn-more-menu a {
+  display: block;
+  padding: 14px 28px;
+  color: #555;
+  font-size: 14.5px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  border-bottom: none;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.learn-more-menu a:hover {
+  background: rgba(34, 72, 136, 0.08);
+  color: #224888;
+  padding-left: 35px;
+}
+
+/* Book Now Dropdown */
+.book-now-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.book-now-btn {
+  background: #224888;
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px; 
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.book-now-btn:hover {
+  background: #1a3a6f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 72, 136, 0.3);
+}
+
+/* Book Now Dropdown Menu */
+.book-now-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 280px;
+  background: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  padding: 18px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1001;
+  border: 1px solid rgba(34, 72, 136, 0.1);
+}
+
+.book-now-dropdown-menu a,
+.book-now-dropdown-menu button {
+  display: block;
+  padding: 14px 28px;
+  color: #555;
+  font-size: 14.5px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  border-bottom: none;
+  text-align: left;
+  transition: all 0.2s ease;
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.book-now-dropdown-menu a:hover,
+.book-now-dropdown-menu button:hover {
+  background: rgba(34, 72, 136, 0.08);
+  color: #224888;
+}
+
+.book-now-dropdown-menu a svg,
+.book-now-dropdown-menu button svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.book-now-dropdown-menu .divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 12px 0;
+}
+
+/* Menu Button */
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  display: none;
+  margin-left: 25px;
+  z-index: 1002; /* Higher than nav-links */
+}
+
+.menu-btn:hover {
+  background-color: rgba(34, 72, 136, 0.12);
+}
+
+.hamburger {
+  display: block;
+  color: #224888;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.menu-btn.open .hamburger {
+  transform: rotate(90deg);
+}
+
+/* Nav spacer for alignment */
+.nav-spacer {
+  flex-grow: 1;
+}
+
+/* ============ TABLET & MOBILE MENU (1024px and below) ============ */
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 120px; /* Match container height */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 0;
+    gap: 0;
+    overflow-y: auto;
+    z-index: 1001; /* Higher z-index */
+    margin: 0;
+    box-sizing: border-box;
+    flex-direction: column;
+  }
+  
+  /* IMPORTANT: Show menu when .open class is present */
+  .nav-links.open {
+    display: flex !important;
+    animation: slideDown 0.3s ease;
+  }
+  
+  .menu-btn {
+    display: block;
+  }
+  
+  .logo-icon {
+    height: 100px;
+    width: 100px;
+  }
+  
+  .logo {
+    margin-right: 0;
+  }
+  
+  .container {
+    padding: 0 30px;
+    min-height: 120px;
+  }
+}
+
+/* iPad-specific adjustments */
+@media (max-width: 1024px) and (min-height: 1024px) {
+  /* For iPad Pro in portrait mode */
+  .nav-links {
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+  
+  .nav-links > a,
+  .dropdown-btn,
+  .learn-more-btn,
+  .book-now-btn {
+    padding: 25px 30px;
+    font-size: 19px;
+  }
+  
+  .dropdown-menu a,
+  .learn-more-menu a,
+  .book-now-dropdown-menu a,
+  .book-now-dropdown-menu button {
+    padding: 20px 30px 20px 40px;
+    font-size: 17px;
+  }
+}
+
+/* Mobile specific styles (768px and below) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+    min-height: 120px;
+  }
+
+  .nav-links {
+    top: 120px;
+    height: calc(100vh - 120px);
+  }
+
+  .nav-links > a,
+  .dropdown-btn,
+  .learn-more-btn,
+  .book-now-btn {
+    padding: 20px 25px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    margin: 0;
+    color: #333;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Mobile: Remove hover effects and use click only */
+  .nav-links > a:hover,
+  .dropdown-btn:hover,
+  .learn-more-btn:hover,
+  .book-now-btn:hover {
+    background-color: transparent;
+    color: #333;
+  }
+
+  /* Mobile: Active state for clicked items */
+  .nav-links > a.active,
+  .dropdown-btn.active,
+  .learn-more-btn.active,
+  .book-now-btn.active {
+    color: #224888;
+    background-color: rgba(34, 72, 136, 0.08);
+  }
+
+  /* Dropdown containers */
+  .dropdown-container,
+  .learn-more-dropdown,
+  .book-now-dropdown {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Dropdown menus - positioned static for mobile, 100% width */
+  .dropdown-menu,
+  .learn-more-menu,
+  .book-now-dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: rgba(34, 72, 136, 0.04);
+    border-radius: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-left: 4px solid transparent;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+
+  .dropdown-menu.open,
+  .learn-more-menu.open,
+  .book-now-dropdown-menu.open {
+    max-height: 500px;
+    padding: 0;
+    border-left: 4px solid #224888;
+  }
+
+
+  .dropdown-menu a,
+  .learn-more-menu a,
+  .book-now-dropdown-menu a,
+  .book-now-dropdown-menu button {
+    padding: 18px 25px 18px 35px;
+    font-size: 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  
+  .dropdown-menu a:last-child,
+  .learn-more-menu a:last-child,
+  .book-now-dropdown-menu a:last-child,
+  .book-now-dropdown-menu button:last-child {
+    border-bottom: none;
+  }
+
+  
+  .dropdown-menu a:hover,
+  .learn-more-menu a:hover,
+  .book-now-dropdown-menu a:hover,
+  .book-now-dropdown-menu button:hover {
+    background: rgba(34, 72, 136, 0.08);
+    color: #224888;
+    padding-left: 40px;
+  }
+
+
+  .book-now-btn {
+    margin-left: 0;
+    padding: 20px 25px;
+    font-size: 18px;
+    width: 100%;
+    margin: 0;
+    justify-content: space-between;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background: #224888;
+    color: white;
+  }
+  
+  .book-now-dropdown {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+ 
+  .book-now-dropdown-menu {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .book-now-dropdown-menu .divider {
+    margin: 15px 25px;
+  }
+
+
+  .nav-links a::after,
+  .dropdown-btn::after,
+  .learn-more-btn::after {
+    display: none;
+  }
+
+ 
+  .dropdown-icon {
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+
+  .dropdown-btn.active .dropdown-icon,
+  .learn-more-btn.active .dropdown-icon,
+  .book-now-btn.active .dropdown-icon {
+    transform: rotate(180deg);
+  }
+}
+
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    padding: 0 50px;
+  }
+  
+  .nav-links {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .container {
+    padding: 0 40px;
+  }
+  
+  .nav-links {
+    gap: 25px;
+    margin-right: 20px;
+  }
+  
+  .logo {
+    margin-right: 50px;
+  }
+  
+  .nav-links a,
+  .dropdown-btn,
+  .learn-more-btn {
+    font-size: 14px;
+    padding: 12px 6px;
+  }
+  
+  .book-now-btn {
+    padding: 12px 30px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 1025px) {
+  .container {
+    padding: 0 35px;
+  }
+  
+  .nav-links {
+    gap: 22px;
+  }
+  
+  .logo {
+    margin-right: 40px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+    min-height: 120px;
+  }
+
+  .nav-links {
+    top: 120px;
+    height: calc(100vh - 120px);
+  }
+
+  .nav-links > a,
+  .dropdown-btn,
+  .learn-more-btn,
+  .book-now-btn {
+    padding: 18px 20px;
+    font-size: 17px;
+  }
+
+  .dropdown-menu a,
+  .learn-more-menu a,
+  .book-now-dropdown-menu a,
+  .book-now-dropdown-menu button {
+    padding: 16px 20px 16px 30px;
+    font-size: 16px;
+  }
+  
+  .book-now-btn {
+    padding: 18px 20px;
+    font-size: 17px;
+  }
+
+  .book-now-dropdown-menu .divider {
+    margin: 12px 20px;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .container {
+    min-height: 120px;
+  }
+
+  .nav-links > a,
+  .dropdown-btn,
+  .learn-more-btn,
+  .book-now-btn {
+    padding: 16px 15px;
+    font-size: 16px;
+  }
+
+  .dropdown-menu a,
+  .learn-more-menu a,
+  .book-now-dropdown-menu a,
+  .book-now-dropdown-menu button {
+    padding: 14px 15px 14px 25px;
+    font-size: 15px;
+  }
+  
+  .book-now-btn {
+    padding: 16px 15px;
+    font-size: 16px;
+  }
+}
+
+
+body.menu-open {
+  overflow: hidden;
+}
