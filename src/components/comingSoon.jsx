@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import BlewmLogo from "../assets/images/logo/blewmswirl.png";
 import BlewmTextLogo from "../assets/images/logo/blewm-word.png";
 import AvenirMediumTTF from "../../font/AvenirMedium/avenirMedium.ttf";
+import LT from "../../font/AvenirMedium/ltMuseum.ttf";
 
 const ComingSoon = () => {
   const [windowWidth, setWindowWidth] = useState(
@@ -21,8 +22,9 @@ const ComingSoon = () => {
     const style = document.createElement('style');
     style.textContent = `
       @font-face {
-        font-family: 'Avenir Medium';
-        src: url(${AvenirMediumTTF}) format('truetype');
+        font-family: 'LT Museum';
+   
+        src: url(${LT}) format('truetype');
         font-weight: 500;
         font-style: normal;
         font-display: swap;
@@ -54,7 +56,7 @@ const ComingSoon = () => {
       minHeight: '100vh',
  
       background: 'linear-gradient(135deg, #f8faff 0%, #eef2ff 50%, #e6ecff 100%)',
-      fontFamily: "'Avenir Medium', 'Segoe UI', 'Arial', sans-serif",
+      fontFamily: "'LT Museum', 'Segoe UI', 'Arial', sans-serif",
       overflow: 'hidden',
       position: 'relative',
       padding: isMobile ? '10px' : '20px',
@@ -142,9 +144,8 @@ const ComingSoon = () => {
       width: '100%',
     },
     comingSoonText: {
-      fontFamily: "'LTMesuem', 'Segoe UI', 'Arial', sans-serif",
+      fontFamily: "'LT Museum', 'Segoe UI', sans-serif",
       fontSize: isSmallMobile ? '36px' : isMobile ? '48px' : windowWidth <= 1024 ? '72px' : '96px',
-      fontWeight: 'bold',
       color: '#224888',
       margin: '0',
       textShadow: '0 2px 8px rgba(34, 72, 136, 0.2)',
