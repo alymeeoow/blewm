@@ -1,11 +1,4 @@
-/* Avenir Medium Font Face */
-@font-face {
-  font-family: 'Avenir Medium';
-  src: url('../../../../font/AvenirMedium/avenirMedium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+
 
 html {
   scroll-behavior: smooth;

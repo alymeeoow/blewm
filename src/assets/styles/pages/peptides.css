@@ -1,0 +1,759 @@
+/* Add this at the very top of your peptides.css file */
+@import url('../../../App.css');
+
+.peptides-page {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background: white;
+}
+
+.peptides-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   TYPOGRAPHY & REUSABLE COMPONENTS
+============================================= */
+.peptides-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.peptides-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.peptides-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.peptides-title-accent {
+  color: var(--primary-color);
+  display: inline-block;
+  position: relative;
+}
+
+.peptides-title-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  border-radius: 2px;
+}
+
+.peptides-section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-medium);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.peptides-title-sub {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--text-medium);
+  font-weight: 300;
+  margin-top: 12px;
+  letter-spacing: 1.5px;
+}
+
+.peptides-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.peptides-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.peptides-card:hover::before {
+  transform: scaleX(1);
+}
+
+.peptides-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+
+.peptides-card-icon {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.peptides-icon-img {
+  width: 150px; 
+  height: 150px; 
+  object-fit: cover; 
+  border-radius: 50%; 
+ 
+  background: white;
+  padding: 8px;
+
+  transition: all 0.3s ease;
+}
+
+.peptides-card:hover .peptides-icon-img {
+  transform: scale(1.05);
+  border-color: var(--primary-dark);
+  box-shadow: 0 6px 20px rgba(34, 72, 136, 0.25);
+}
+
+.peptides-card-number {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  opacity: 0.2;
+}
+
+.peptides-card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.peptides-card-text {
+  font-size: 1rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.peptides-btn {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  letter-spacing: 0.5px;
+}
+
+.peptides-btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: var(--white);
+}
+
+.peptides-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(34, 72, 136, 0.3);
+}
+
+.peptides-btn-text {
+  font-size: 1.1rem;
+}
+
+.peptides-btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.peptides-btn-primary:hover .peptides-btn-icon {
+  transform: translateX(4px);
+}
+
+.peptides-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* SPECIFIC GRID FOR TARGETED THERAPIES - 4 CARDS IN 1 ROW */
+.peptides-therapy .peptides-cards-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* ============================================
+   HERO SECTION
+============================================= */
+.peptides-hero {
+  height: 100vh;
+  min-height: 700px;
+  position: relative;
+  overflow: hidden;
+}
+
+.peptides-hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.peptides-hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: peptides-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes peptides-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.peptides-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.peptides-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.peptides-hero-title {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  line-height: 1.1;
+}
+
+.peptides-hero-tagline {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+.peptides-hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--white);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* ============================================
+   CONTENT SECTIONS
+============================================= */
+
+/* Benefits Section */
+.peptides-benefits {
+  background: var(--background-light);
+}
+
+/* Therapy Section */
+.peptides-therapy {
+  background: var(--white);
+}
+
+/* Delivery Section */
+.peptides-delivery {
+  background: var(--white);
+}
+
+/* Science Section */
+.peptides-science {
+  background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
+}
+
+.peptides-science-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.peptides-science-text {
+  font-size: 1.2rem;
+  color: var(--text-medium);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.peptides-science-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.peptides-science-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  padding: 16px 24px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.peptides-science-item:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-md);
+}
+
+.peptides-science-check {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* Product Section */
+.peptides-product {
+  background: var(--background-light);
+  border-top: 1px solid var(--border-color);
+}
+
+.peptides-product-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-top: 20px;
+}
+
+.peptides-product-image {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.peptides-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.peptides-product-card:hover .peptides-product-img {
+  transform: scale(1.05);
+}
+
+.peptides-product-details {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.peptides-product-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.peptides-product-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.peptides-product-description {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.peptides-product-features {
+  margin-bottom: 30px;
+}
+
+.peptides-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.peptides-feature-check {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.peptides-product-pricing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 24px;
+  background: var(--background-light);
+  border-radius: var(--radius-md);
+}
+
+.peptides-price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.peptides-price-old {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+
+.peptides-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.peptides-price-month {
+  font-size: 1rem;
+  color: var(--text-medium);
+}
+
+.peptides-savings {
+  background: #48bb78;
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+============================================= */
+.peptides-page::-webkit-scrollbar {
+  width: 10px;
+}
+
+.peptides-page::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.peptides-page::-webkit-scrollbar-thumb {
+  background: rgba(34, 72, 136, 0.6);
+  border-radius: 5px;
+}
+
+.peptides-page::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 72, 136, 0.8);
+}
+
+/* For Firefox */
+.peptides-page {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(34, 72, 136, 0.6) transparent;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+============================================= */
+
+@media (max-width: 1200px) {
+  .peptides-hero-title {
+    font-size: 4rem;
+  }
+  
+  .peptides-section-title {
+    font-size: 2.2rem;
+  }
+  
+  /* Adjust therapy grid for medium screens */
+  .peptides-therapy .peptides-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .peptides-icon-img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .peptides-section {
+    padding: 60px 0;
+  }
+  
+  .peptides-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .peptides-section-title {
+    font-size: 2rem;
+  }
+  
+  .peptides-hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .peptides-hero-tagline {
+    font-size: 1.3rem;
+  }
+  
+  .peptides-hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .peptides-product-card {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .peptides-product-image {
+    height: 300px;
+  }
+  
+  .peptides-product-details {
+    padding: 30px;
+  }
+  
+  /* Keep therapy as 2 columns on tablet */
+  .peptides-therapy .peptides-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .peptides-icon-img {
+    width: 90px;
+    height: 90px;
+    border-width: 3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .peptides-hero-title {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+  }
+  
+  .peptides-hero-tagline {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+  
+  .peptides-section-title {
+    font-size: 1.8rem;
+  }
+  
+  .peptides-title-sub {
+    font-size: 1.1rem;
+  }
+  
+  .peptides-section-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .peptides-science-text {
+    font-size: 1.1rem;
+  }
+  
+  .peptides-card {
+    padding: 30px 20px;
+  }
+  
+  .peptides-icon-img {
+    width: 80px;
+    height: 80px;
+    border-width: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .peptides-card-title {
+    font-size: 1.2rem;
+  }
+  
+  .peptides-product-pricing {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .peptides-product-name {
+    font-size: 1.8rem;
+  }
+  
+  /* Switch therapy to 1 column on mobile */
+  .peptides-therapy .peptides-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .peptides-hero-title {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .peptides-hero-tagline {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  
+  .peptides-hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .peptides-section-title {
+    font-size: 1.6rem;
+  }
+  
+  .peptides-container {
+    padding: 0 16px;
+  }
+  
+  /* All cards grids to 1 column on small mobile */
+  .peptides-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .peptides-icon-img {
+    width: 70px;
+    height: 70px;
+    border-width: 2px;
+    margin-bottom: 16px;
+  }
+  
+  .peptides-science-list {
+    gap: 12px;
+  }
+  
+  .peptides-science-item {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+  
+  .peptides-product-details {
+    padding: 24px 20px;
+  }
+  
+  .peptides-product-name {
+    font-size: 1.6rem;
+  }
+  
+  .peptides-btn {
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+============================================= */
+
+@keyframes peptides-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.peptides-card {
+  animation: peptides-fadeInUp 0.6s ease-out;
+}
+
+.peptides-card:nth-child(1) { animation-delay: 0.1s; }
+.peptides-card:nth-child(2) { animation-delay: 0.2s; }
+.peptides-card:nth-child(3) { animation-delay: 0.3s; }
+.peptides-card:nth-child(4) { animation-delay: 0.4s; }
+
+.peptides-science-item:nth-child(1) { animation-delay: 0.1s; }
+.peptides-science-item:nth-child(2) { animation-delay: 0.2s; }
+.peptides-science-item:nth-child(3) { animation-delay: 0.3s; }

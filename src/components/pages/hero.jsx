@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/styles/pages/hero.css';
 
-
-// import festivalHero from '../../assets/images/festival-hero.jpg';
-import athleticHero from '../../assets/images/hero/bay.png';
-import wellbessHero from '../../assets/images/hero/stretch.png';
-
+import festivalHero from '../../assets/images/hero/blewm-g.webp';
+import athleticHero from '../../assets/images/hero/bay.webp';
+import wellbessHero from '../../assets/images/hero/stretch.webp';
 
 const heroImages = {
-  festivals: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-  athletic:athleticHero,
+  festivals: festivalHero,
+  athletic: athleticHero,
   wellness: wellbessHero
 };
 
@@ -57,11 +55,14 @@ const BlewmHero = () => {
           />
         ))}
         
-        {/* Subtle overlay for readability if needed */}
+  
         <div className="hero-overlay"></div>
         
-        {/* Minimal watermark/logo */}
-        <div className="hero-logo">BLEWM</div>
+  
+        <div className="hero-logo-container">
+          <div className="hero-logo">BLEWM</div>
+          <div className="hero-tagline">empowering wellness</div>
+        </div>
       </div>
     </div>
   );

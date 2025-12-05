@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../../assets/styles/pages/header.css";
 import logo from "../../assets/images/logo/blewm-spiral-word.png";
 
@@ -12,14 +13,15 @@ const Header = () => {
   const learnMoreRef = useRef(null);
   const bookNowRef = useRef(null);
   
+  const navigate = useNavigate();
+  const location = useLocation();
+  
   // Track if we're on mobile/tablet - using 1024px to include all iPads
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Check if window is defined (for SSR)
     if (typeof window !== 'undefined') {
       const checkMobile = () => {
-        // Include all iPads (1024px and below)
         setIsMobile(window.innerWidth <= 1024);
       };
       
@@ -38,7 +40,6 @@ const Header = () => {
     setLearnMoreOpen(false);
     setBookNowOpen(false);
   };
-
 
   const handleDropdownMouseEnter = (index) => {
     if (!isMobile) {
@@ -82,7 +83,6 @@ const Header = () => {
     }
   };
 
-
   const toggleDropdown = (index) => {
     if (isMobile) {
       if (openDropdown === index) {
@@ -119,7 +119,6 @@ const Header = () => {
     }
   };
 
- 
   const handleMobileClick = (dropdownType, index = null) => {
     if (!isMobile) return;
     
@@ -138,12 +137,34 @@ const Header = () => {
     }
   };
 
- 
+  // Navigate to service page
+  const navigateToService = (serviceName) => {
+    const route = `/services/${serviceName.toLowerCase().replace(/\s+/g, '-')}`;
+    navigate(route);
+    handleNavClick();
+  };
+
+  // Navigate to learn more page
+  const navigateToLearnMore = (pageName) => {
+    const route = `/${pageName.toLowerCase().replace(/\s+/g, '-')}`;
+    navigate(route);
+    handleNavClick();
+  };
+
+  // Navigate to booking page
+  const navigateToBooking = (serviceType = null) => {
+    if (serviceType) {
+      const route = `/book-now/${serviceType.toLowerCase().replace(/\s+/g, '-')}`;
+      navigate(route);
+    } else {
+      navigate('/book-now');
+    }
+    handleNavClick();
+  };
+
   useEffect(() => {
     const handleClickOutsideMobile = (event) => {
-    
       if (!isMobile) return;
-      
       
       const navElement = document.querySelector('.nav-links');
       const menuButton = document.querySelector('.menu-btn');
@@ -171,7 +192,6 @@ const Header = () => {
     };
   }, [isMobile, menuOpen]);
 
-
   useEffect(() => {
     if (menuOpen && isMobile) {
       document.body.style.overflow = 'hidden';
@@ -187,63 +207,58 @@ const Header = () => {
   const services = [
     {
       name: "IV Therapy",
+      path: "/services/iv-therapy",
       items: ["Coming Soon"]
     },
     {
       name: "IM Therapy",
+      path: "/services/im-therapy",
       items: ["Coming Soon"]
     },
     {
       name: "Test Kits",
+      path: "/services/test-kits",
       items: ["Coming Soon"]
     },
     {
       name: "Lifestyle Medications",
-      items: ["Peptiside", "Vitamins", "Weightloss"]
+      path: "/services/lifestyle-medications",
+      items: ["Peptides", "Vitamins", "Weightloss"]
     }
   ];
 
   const learnMoreItems = [
-    { text: "Contact", href: "#contact" },
-    { text: "FAQs", href: "#faqs" },
-    { text: "Gift Cards", href: "#giftcards" },
-    { text: "Packages", href: "#packages" },
-
- 
+    { text: "Contact", path: "/contact" },
+    { text: "FAQs", path: "/faqs" },
+    { text: "Gift Cards", path: "/gift-cards" },
+    { text: "Packages", path: "/packages" },
   ];
 
   const bookNowOptions = [
-      {
+    {
       text: "LifeStyle Medication",
+      path: "/book-now/lifestyle-medication",
       icon: (
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       )
     },
-   
-    
-    
   ];
-
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      
       if (!isMobile) {
-        
         Object.values(dropdownRefs.current).forEach(ref => {
           if (ref && !ref.contains(event.target)) {
             setOpenDropdown(null);
           }
         });
         
-     
         if (learnMoreRef.current && !learnMoreRef.current.contains(event.target)) {
           setLearnMoreOpen(false);
         }
         
-       
         if (bookNowRef.current && !bookNowRef.current.contains(event.target)) {
           setBookNowOpen(false);
         }
@@ -262,14 +277,13 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <a href="#home" className="logo" onClick={handleNavClick}>
+        <Link to="/" className="logo" onClick={handleNavClick}>
           <div className="logo-container">
             <img src={logo} alt="Blewm Logo" className="logo-icon" />
           </div>
-        </a>
+        </Link>
 
         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-      
           {services.map((service, index) => (
             <div 
               key={index} 
@@ -279,8 +293,15 @@ const Header = () => {
               onMouseLeave={() => handleDropdownMouseLeave(index)}
             >
               <button 
-                className={`dropdown-btn ${openDropdown === index ? 'active' : ''}`}
-                onClick={() => handleMobileClick('service', index)}
+                className={`dropdown-btn ${openDropdown === index ? 'active' : ''} ${location.pathname.startsWith(service.path) ? 'active-page' : ''}`}
+                onClick={() => {
+                  handleMobileClick('service', index);
+                  // On desktop or when clicking the main button, navigate to service page
+                  if (!isMobile || openDropdown === index) {
+                    navigate(service.path);
+                    handleNavClick();
+                  }
+                }}
                 onMouseEnter={() => !isMobile && handleDropdownMouseEnter(index)}
               >
                 {service.name}
@@ -301,20 +322,20 @@ const Header = () => {
               </button>
               
               <div className={`dropdown-menu ${openDropdown === index ? 'open' : ''}`}>
+               
                 {service.items.map((item, itemIndex) => (
-                  <a 
+                  <Link 
                     key={itemIndex} 
-                    href={`#${service.name.toLowerCase().replace(' ', '-')}-${itemIndex}`}
+                    to={`${service.path}/${item.toLowerCase().replace(/\s+/g, '-')}`}
                     onClick={handleNavClick}
                   >
                     {item}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
           ))}
 
-      
           <div 
             className="dropdown-container"
             ref={learnMoreRef}
@@ -322,7 +343,7 @@ const Header = () => {
             onMouseLeave={handleLearnMoreMouseLeave}
           >
             <button 
-              className={`dropdown-btn ${learnMoreOpen ? 'active' : ''}`}
+              className={`dropdown-btn ${learnMoreOpen ? 'active' : ''} ${learnMoreItems.some(item => location.pathname === item.path) ? 'active-page' : ''}`}
               onClick={() => handleMobileClick('learnMore')}
               onMouseEnter={() => !isMobile && handleLearnMoreMouseEnter()}
             >
@@ -345,34 +366,33 @@ const Header = () => {
             
             <div className={`dropdown-menu ${learnMoreOpen ? 'open' : ''}`}>
               {learnMoreItems.map((item, index) => (
-                <a 
+                <Link 
                   key={index} 
-                  href={item.href}
+                  to={item.path}
                   onClick={handleNavClick}
                 >
                   {item.text}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
             
-          <a 
-            href="#concierge" 
+          <Link 
+            to="/concierge" 
             onClick={handleNavClick}
-            className="nav-link-item"
+            className={`nav-link-item ${location.pathname === '/concierge' ? 'active' : ''}`}
           >
             Concierge
-          </a>
-          <a 
-            href="#about" 
+          </Link>
+          
+          <Link 
+            to="/about" 
             onClick={handleNavClick}
-            className="nav-link-item"
+            className={`nav-link-item ${location.pathname === '/about' ? 'active' : ''}`}
           >
             About
-          </a>
+          </Link>
 
-
-      
           <div 
             className="book-now-dropdown"
             ref={bookNowRef}
@@ -380,8 +400,13 @@ const Header = () => {
             onMouseLeave={handleBookNowMouseLeave}
           >
             <button 
-              className={`book-now-btn ${bookNowOpen ? 'active' : ''}`}
-              onClick={() => handleMobileClick('bookNow')}
+              className={`book-now-btn ${bookNowOpen ? 'active' : ''} ${location.pathname.startsWith('/book-now') ? 'active-page' : ''}`}
+              onClick={() => {
+                handleMobileClick('bookNow');
+                if (!isMobile || bookNowOpen) {
+                  navigateToBooking();
+                }
+              }}
               onMouseEnter={() => !isMobile && handleBookNowMouseEnter()}
             >
               Book Now
@@ -403,19 +428,20 @@ const Header = () => {
             
             <div className={`book-now-dropdown-menu ${bookNowOpen ? 'open' : ''}`}>
               {bookNowOptions.map((option, index) => (
-                <button 
+                <Link 
                   key={index}
-                  onClick={() => {
-                    handleNavClick();
-                    console.log(`Selected: ${option.text}`);
-                  }}
+                  to={option.path}
+                  onClick={handleNavClick}
                 >
                   {option.icon}
                   {option.text}
-                </button>
+                </Link>
               ))}
               <div className="divider"></div>
-              <button onClick={handleNavClick}>
+              <button onClick={() => {
+                handleNavClick();
+                window.location.href = 'tel:5551234567';
+              }}>
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
