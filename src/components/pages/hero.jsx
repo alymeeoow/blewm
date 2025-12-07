@@ -1,69 +1,118 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import '../../assets/styles/pages/hero.css';
 
 import festivalHero from '../../assets/images/hero/blewm-g.webp';
 import athleticHero from '../../assets/images/hero/bay.webp';
 import wellbessHero from '../../assets/images/hero/stretch.webp';
 
-const heroImages = {
-  festivals: festivalHero,
-  athletic: athleticHero,
-  wellness: wellbessHero
+// Preload images
+const preloadImages = () => {
+  const images = [festivalHero, athleticHero, wellbessHero];
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
 };
 
 const BlewmHero = () => {
-  const [currentImage, setCurrentImage] = useState('festivals');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const images = [
-    { id: 'festivals', src: heroImages.festivals },
-    { id: 'athletic', src: heroImages.athletic },
-    { id: 'wellness', src: heroImages.wellness }
+    { id: 'festivals', src: festivalHero },
+    { id: 'athletic', src: athleticHero },
+    { id: 'wellness', src: wellbessHero }
   ];
 
+  // Detect mobile on mount
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    // Preload images
+    preloadImages();
+    setImagesLoaded(true);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Optimized transition function
+  const transitionToNext = useCallback(() => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
+    
+    // Faster transition on mobile
+    const transitionTime = isMobile ? 300 : 500;
+    
+    setTimeout(() => {
+      setCurrentIndex(prev => (prev + 1) % images.length);
       
       setTimeout(() => {
-        const currentIndex = images.findIndex(img => img.id === currentImage);
-        const nextIndex = (currentIndex + 1) % images.length;
-        setCurrentImage(images[nextIndex].id);
-        
-        setTimeout(() => {
-          setIsTransitioning(false);
-        }, 300);
-      }, 500);
-    }, 8000);
+        setIsTransitioning(false);
+      }, transitionTime);
+    }, transitionTime);
+  }, [isTransitioning, isMobile, images.length]);
+
+  // Auto-rotate with different timing for mobile
+  useEffect(() => {
+    if (!imagesLoaded) return;
+
+    const intervalTime = isMobile ? 10000 : 8000; // Slower on mobile (10s vs 8s)
+    const interval = setInterval(transitionToNext, intervalTime);
     
     return () => clearInterval(interval);
-  }, [currentImage]);
+  }, [transitionToNext, imagesLoaded, isMobile]);
 
-  const currentImageData = images.find(img => img.id === currentImage);
+  // Pause slideshow when user interacts (optional)
+  const [isPaused, setIsPaused] = useState(false);
+  
+  const handleUserInteraction = useCallback(() => {
+    if (!isMobile) return;
+    
+    setIsPaused(true);
+    setTimeout(() => setIsPaused(false), 15000); // Resume after 15 seconds
+  }, [isMobile]);
+
+  // Manual navigation dots
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+    handleUserInteraction();
+  };
 
   return (
-    <div className="blewm-hero">
-      {/* Full Screen Hero Images */}
+    <div className="blewm-hero" onClick={handleUserInteraction}>
       <div className="hero-image-container">
-        {images.map((image) => (
+        {/* Render all images for smooth transitions */}
+        {images.map((image, index) => (
           <div
             key={image.id}
-            className={`hero-image-layer ${image.id === currentImage ? 'active' : ''} ${isTransitioning ? 'transitioning' : ''}`}
+            className={`hero-image-layer ${index === currentIndex ? 'active' : ''} ${isTransitioning ? 'transitioning' : ''}`}
             style={{
-              backgroundImage: `url(${image.src})`
+              backgroundImage: `url(${image.src})`,
             }}
+            data-image-type={image.id}
+            data-mobile={isMobile}
           />
         ))}
         
-  
-        <div className="hero-overlay"></div>
+        <div className="hero-overlay" />
         
-  
         <div className="hero-logo-container">
           <div className="hero-logo">BLEWM</div>
           <div className="hero-tagline">empowering wellness</div>
         </div>
-      </div>
+        
+      
+        
+        
+             </div>
     </div>
   );
 };

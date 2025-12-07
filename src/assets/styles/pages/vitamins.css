@@ -1,3 +1,4 @@
+/* vitamins.css - WITHOUT RIGHT-SIDE IMAGE */
 
 @import url('../../../App.css');
 
@@ -14,7 +15,6 @@
   margin: 0 auto;
   padding: 0 20px;
 }
-
 
 .vitamins-section {
   padding: 80px 0;
@@ -61,8 +61,8 @@
 }
 
 .vitamins-btn {
-  padding: 16px 32px;
-  font-size: 1.1rem;
+  padding: 14px 28px;
+  font-size: 1rem;
   font-weight: 600;
   border-radius: var(--radius-md);
   border: none;
@@ -71,12 +71,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   letter-spacing: 0.5px;
 }
 
 .vitamins-btn-primary {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+  background: var(--primary-color);
   color: var(--white);
 }
 
@@ -97,7 +97,6 @@
 .vitamins-btn-primary:hover .vitamins-btn-icon {
   transform: translateX(4px);
 }
-
 
 .vitamins-hero {
   height: 100vh;
@@ -184,64 +183,71 @@
   opacity: 0.9;
 }
 
-
 .vitamins-intro {
   background: var(--background-light);
 }
 
-.vitamins-intro-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: stretch;
-}
+/* REMOVED: .vitamins-intro-content grid layout */
+/* Content now takes full width since there's no right-side image */
 
 .vitamins-intro-text {
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 40px;
 }
 
 .vitamins-intro-headline {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 24px;
+  margin-bottom: 0;
   line-height: 1.4;
+  text-align: center;
 }
 
 .vitamins-key-point {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--text-medium);
   line-height: 1.7;
-  margin-bottom: 40px;
-  padding-left: 20px;
-  border-left: 3px solid var(--primary-color);
+  margin: 0;
+  padding: 25px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-md);
+  text-align: center;
 }
 
 .vitamins-key-point strong {
   color: var(--text-dark);
 }
 
-
 .vitamins-stats {
-  display: flex;
-  justify-content: space-between;
-  margin: 40px 0;
-  padding: 30px;
-  background: var(--white);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin: 0;
 }
 
 .vitamins-stat {
   text-align: center;
-  flex: 1;
-  padding: 0 20px;
+  padding: 30px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+}
+
+.vitamins-stat:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
 }
 
 .vitamins-stat-number {
   display: block;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
   color: var(--primary-color);
   line-height: 1;
@@ -250,30 +256,53 @@
 
 .vitamins-stat-label {
   display: block;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--text-medium);
   font-weight: 500;
   line-height: 1.3;
 }
 
-
+/* ============================================
+   BENEFITS GRID - FULL WIDTH
+============================================= */
 .vitamins-benefits-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
-  margin: 40px 0;
+  margin: 0;
 }
 
 .vitamins-benefit {
   display: flex;
-  align-items: flex-start;
-  gap: 25px;
-  padding: 30px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 35px;
   background: var(--white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   transition: var(--transition);
   border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.vitamins-benefit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+.vitamins-benefit:hover::before {
+  transform: scaleX(1);
 }
 
 .vitamins-benefit:hover {
@@ -282,27 +311,27 @@
   border-color: var(--primary-color-light);
 }
 
-
 .vitamins-benefit-icon {
-  width: 150px;
-  height: 150px;
-  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--primary-color-light), var(--primary-color));
-  border-radius: 25px;
-  padding: 30px;
+  border-radius: 50%;
+  padding: 20px;
+  margin-bottom: 25px;
   position: relative;
   overflow: hidden;
+  border: 5px solid rgba(255, 255, 255, 0.3);
 }
 
 .vitamins-benefit-icon img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
- 
-
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 
 .vitamins-benefit:hover .vitamins-benefit-icon img {
@@ -310,61 +339,40 @@
 }
 
 .vitamins-benefit-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
 }
 
 .vitamins-benefit-content h4 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   line-height: 1.3;
 }
 
 .vitamins-benefit-content p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--text-medium);
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
 }
 
 .vitamins-cta-text {
-  font-size: 1.2rem;
-  color: var(--text-medium);
+  font-size: 1.3rem;
+  color: var(--text-dark);
   font-style: italic;
-  padding: 25px;
+  padding: 30px;
   background: var(--white);
   border-radius: var(--radius-lg);
   border: 2px solid var(--border-color);
-  margin-top: auto;
   text-align: center;
   box-shadow: var(--shadow-md);
-  border-left: 4px solid var(--primary-color);
+  border-left: 5px solid var(--primary-color);
+  margin-top: 20px;
+  font-weight: 500;
 }
 
-.vitamins-intro-image {
-  position: relative;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-2xl);
-  height: 100%;
-}
-
-.vitamins-intro-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.vitamins-intro-image:hover .vitamins-intro-img {
-  transform: scale(1.05);
-}
-
+/* REMOVED: .vitamins-intro-image styles */
 
 .vitamins-product {
   background: var(--background-light);
@@ -385,7 +393,7 @@
 .vitamins-product-image {
   position: relative;
   overflow: hidden;
-  min-height: 400px;
+  min-height: 500px;
 }
 
 .vitamins-product-img {
@@ -507,7 +515,7 @@
 }
 
 /* ============================================
-   RESPONSIVE DESIGN FOR 150px ICONS
+   RESPONSIVE DESIGN
 ============================================= */
 @media (max-width: 1200px) {
   .vitamins-hero-title {
@@ -519,13 +527,12 @@
   }
   
   .vitamins-benefit-icon {
-    width: 130px;
-    height: 130px;
-    padding: 25px;
+    width: 160px;
+    height: 160px;
   }
   
   .vitamins-benefit-content h4 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -560,53 +567,65 @@
   }
   
   .vitamins-product-image {
-    height: 300px;
+    height: 350px;
+    min-height: auto;
   }
   
   .vitamins-product-details {
     padding: 30px;
   }
   
-  .vitamins-intro-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .vitamins-intro-image {
-    height: 400px;
-  }
-  
   .vitamins-intro-headline {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+  }
+  
+  .vitamins-key-point {
+    font-size: 1.1rem;
+    padding: 20px;
   }
   
   .vitamins-benefits-grid {
     grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
   }
   
-  .vitamins-stats {
-    padding: 20px;
-    flex-direction: column;
+  .vitamins-benefit {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
     gap: 25px;
+    padding: 30px;
+  }
+  
+  .vitamins-benefit-icon {
+    width: 140px;
+    height: 140px;
+    padding: 15px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  .vitamins-benefit-content h4 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+  
+  .vitamins-benefit-content p {
+    font-size: 1.05rem;
+  }
+  
+  .vitamins-cta-text {
+    font-size: 1.2rem;
+    padding: 25px;
   }
   
   .vitamins-stat-number {
     font-size: 2.5rem;
   }
   
-  .vitamins-benefit-icon {
-    width: 120px;
-    height: 120px;
+  .vitamins-stat {
     padding: 25px;
-  }
-  
-  .vitamins-benefit {
-    gap: 20px;
-    padding: 25px;
-  }
-  
-  .vitamins-benefit-content h4 {
-    font-size: 1.3rem;
   }
 }
 
@@ -643,27 +662,33 @@
     grid-template-columns: 1fr;
   }
   
-  .vitamins-benefit-icon {
-    width: 100px;
-    height: 100px;
-    padding: 20px;
+  .vitamins-benefit {
+    padding: 25px;
+    gap: 20px;
   }
   
-  .vitamins-benefit {
-    padding: 20px;
-    gap: 15px;
+  .vitamins-benefit-icon {
+    width: 120px;
+    height: 120px;
+    padding: 15px;
   }
   
   .vitamins-benefit-content h4 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   
-  .vitamins-intro-image {
-    height: 350px;
-  }
-  
-  .vitamins-benefits-grid {
+  .vitamins-stats {
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+  }
+  
+  .vitamins-stat:nth-child(3) {
+    grid-column: span 2;
+  }
+  
+  .vitamins-cta-text {
+    font-size: 1.1rem;
+    padding: 20px;
   }
 }
 
@@ -672,22 +697,40 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
-    padding: 30px 20px;
+    padding: 30px 25px;
+    gap: 20px;
   }
   
   .vitamins-benefit-icon {
-    width: 120px;
-    height: 120px;
-    padding: 30px;
-    margin-bottom: 15px;
+    width: 140px;
+    height: 140px;
+    padding: 20px;
+    margin-bottom: 0;
   }
   
   .vitamins-benefit-content h4 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
   }
   
   .vitamins-benefit-content p {
+    font-size: 1.1rem;
+  }
+  
+  .vitamins-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .vitamins-stat:nth-child(3) {
+    grid-column: auto;
+  }
+  
+  .vitamins-stat-number {
+    font-size: 2.2rem;
+  }
+  
+  .vitamins-stat-label {
     font-size: 1rem;
   }
 }
@@ -721,28 +764,66 @@
   }
   
   .vitamins-benefit-icon {
-    width: 100px;
-    height: 100px;
-    padding: 25px;
+    width: 120px;
+    height: 120px;
+    padding: 15px;
   }
   
   .vitamins-benefit-content h4 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   
   .vitamins-stat-number {
     font-size: 2rem;
   }
   
-  .vitamins-intro-image {
-    height: 300px;
-  }
-  
   .vitamins-price {
     font-size: 2.2rem;
   }
+  
+  .vitamins-intro-headline {
+    font-size: 1.6rem;
+  }
+  
+  .vitamins-key-point {
+    font-size: 1rem;
+    padding: 15px;
+  }
 }
 
+/* ============================================
+   ANIMATIONS
+============================================= */
+@keyframes vitamins-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vitamins-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes vitamins-iconGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(42, 127, 98, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(42, 127, 98, 0.6);
+  }
+}
 
 .vitamins-product-card {
   animation: vitamins-fadeInUp 0.6s ease-out;
@@ -776,16 +857,6 @@
 .vitamins-benefit:nth-child(2) .vitamins-benefit-icon { animation-delay: 0.3s; }
 .vitamins-benefit:nth-child(3) .vitamins-benefit-icon { animation-delay: 0.4s; }
 .vitamins-benefit:nth-child(4) .vitamins-benefit-icon { animation-delay: 0.5s; }
-
-/* Glow effect for icons on hover */
-@keyframes vitamins-iconGlow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(42, 127, 98, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(42, 127, 98, 0.6);
-  }
-}
 
 .vitamins-benefit:hover .vitamins-benefit-icon {
   animation: vitamins-iconGlow 2s infinite ease-in-out;

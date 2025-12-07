@@ -24,7 +24,7 @@
 }
 
 .weightloss-section-header {
- text-align: center;
+  text-align: center;
   margin-bottom: 60px;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .weightloss-btn-primary {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+  background: var(--primary-color);
   color: var(--white);
 }
 
@@ -104,6 +104,7 @@
 .weightloss-hero-image-container {
   position: absolute;
   top: 0;
+  object-fit: stretch;
   left: 0;
   width: 100%;
   height: 100%;
@@ -143,7 +144,6 @@
   z-index: 2;
   text-align: center;
   width: 100vw;
- 
   padding: 0 20px;
 }
 
@@ -285,63 +285,88 @@
 .weightloss-features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 50px;
+  gap: 40px;
+  margin-bottom: 60px;
 }
 
 .weightloss-feature {
   text-align: center;
-  padding: 30px;
+  padding: 40px 30px;
   background: var(--white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   transition: var(--transition);
   border: 2px solid transparent;
+  position: relative; /* ADD THIS LINE - crucial for ::before positioning */
+  overflow: hidden; /* Optional: keeps ::before contained within border-radius */
+}
+
+.weightloss-feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 1; /* Optional: ensures it stays on top */
+}
+
+.weightloss-feature:hover::before {
+  transform: scaleX(1);
 }
 
 .weightloss-feature:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--primary-color-light);
+
 }
 
+/* FIXED: Same border radius for icon container and image */
 .weightloss-feature-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 20px;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%; /* Circle shape for container */
+  padding: 0; /* Remove padding to make image bigger */
+  border: 4px solid rgba(255, 255, 255, 0.3);
   background: linear-gradient(135deg, var(--primary-color-light), var(--primary-color));
-  border-radius: 50%;
-  padding: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(42, 127, 98, 0.2);
+  overflow: hidden; /* Ensures image stays within circle */
 }
 
+/* FIXED: Image inside the icon - matches container size and shape */
 .weightloss-feature-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
+  width: 100%; /* Fill the entire container */
+  height: 100%; /* Fill the entire container */
+  object-fit: cover; /* Makes image fill the circle properly */
+  border-radius: 50%; /* Same border radius as container */
+  display: block;
 }
 
 .weightloss-feature-title {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   line-height: 1.3;
 }
 
 .weightloss-feature-text {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--text-medium);
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
 }
 
 .weightloss-cta-box {
-  padding: 40px;
+  padding: 50px 40px;
   background: linear-gradient(135deg, #1a6b4e, #2a7f62);
   border-radius: var(--radius-lg);
   text-align: center;
@@ -349,16 +374,16 @@
 }
 
 .weightloss-cta-title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #ffffff;
 }
 
 .weightloss-cta-text {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 25px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -369,6 +394,8 @@
   background: #ffffff;
   color: #2a7f62;
   font-weight: 700;
+  padding: 16px 32px;
+  font-size: 1.1rem;
 }
 
 .weightloss-cta-box .weightloss-btn-primary:hover {
@@ -385,11 +412,29 @@
   border-top: 1px solid var(--border-color);
 }
 
+
+
+
+
 .weightloss-product-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   margin-bottom: 50px;
+  position: relative; /* ADD THIS LINE */
+}
+
+.weightloss-product-cards::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: black;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
 }
 
 .weightloss-product-card {
@@ -408,7 +453,7 @@
 .weightloss-product-image {
   position: relative;
   overflow: hidden;
-  height: 200px;
+  height: 450px;
 }
 
 .weightloss-product-img {
@@ -420,6 +465,8 @@
 
 .weightloss-product-card:hover .weightloss-product-img {
   transform: scale(1.05);
+  border-color: var(--primary-dark);
+  box-shadow: 0 6px 20px rgba(34, 72, 136, 0.25);
 }
 
 .weightloss-product-details {
@@ -553,7 +600,7 @@
 ============================================= */
 @media (max-width: 1200px) {
   .weightloss-hero-title {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
   
   .weightloss-section-title {
@@ -563,11 +610,11 @@
 
 @media (max-width: 992px) {
   .weightloss-section {
-    padding: 50px 0;
+    padding: 60px 0;
   }
   
   .weightloss-section-header {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   
   .weightloss-section-title {
@@ -575,7 +622,7 @@
   }
   
   .weightloss-hero-title {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
   }
   
   .weightloss-hero-tagline {
@@ -585,16 +632,27 @@
   .weightloss-intro-content,
   .weightloss-semaglutide-content {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 40px;
   }
   
   .weightloss-features-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
   
   .weightloss-product-cards {
     grid-template-columns: 1fr;
     gap: 25px;
+  }
+  
+  /* Tablet icon sizes */
+  .weightloss-feature-icon {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .weightloss-feature-title {
+    font-size: 1.3rem;
   }
 }
 
@@ -605,31 +663,34 @@
   }
   
   .weightloss-hero-title {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
   }
   
   .weightloss-hero-tagline {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .weightloss-section-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
   
   .weightloss-features-grid {
     grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .weightloss-feature {
-    padding: 25px;
+    padding: 35px 25px;
   }
   
   .weightloss-cta-box {
-    padding: 30px 20px;
+    padding: 40px 25px;
   }
   
   .weightloss-cta-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   
   .weightloss-product-pricing {
@@ -641,19 +702,36 @@
   .weightloss-company-title {
     font-size: 1.3rem;
   }
+  
+  /* Mobile icon sizes */
+  .weightloss-feature-icon {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 25px;
+  }
+  
+  .weightloss-feature-title {
+    font-size: 1.25rem;
+  }
+  
+  .weightloss-feature-text {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
   .weightloss-hero-title {
-    font-size: 1.6rem;
+    font-size: 2rem;
+    letter-spacing: 2px;
   }
   
   .weightloss-hero-tagline {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-bottom: 25px;
   }
   
   .weightloss-section-title {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   
   .weightloss-container {
@@ -665,10 +743,11 @@
     font-size: 0.9rem;
   }
   
+  /* Small mobile icon sizes */
   .weightloss-feature-icon {
-    width: 70px;
-    height: 70px;
-    padding: 15px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
   }
   
   .weightloss-product-name {
@@ -677,6 +756,31 @@
   
   .weightloss-price {
     font-size: 1.5rem;
+  }
+  
+  .weightloss-feature-title {
+    font-size: 1.2rem;
+  }
+  
+  .weightloss-feature-text {
+    font-size: 0.95rem;
+  }
+  
+  .weightloss-cta-box .weightloss-btn-primary {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Extra small devices */
+  .weightloss-feature-icon {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .weightloss-hero-title {
+    font-size: 1.8rem;
   }
 }
 

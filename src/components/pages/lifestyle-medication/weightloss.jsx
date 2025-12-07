@@ -2,7 +2,20 @@ import React from 'react';
 import '../../../assets/styles/pages/weightloss.css';
 
 
+
 import WeightLoss from "../../../assets/images/weight-loss/weight-loss.png";
+
+import ApetiteControl from "../../../assets/images/weight-loss/apetite-control.png";
+
+import MetabolicSupport from "../../../assets/images/weight-loss/metabolic-support.png";
+
+import SustainableResult from "../../../assets/images/weight-loss/sustainable-result.png";
+import Consult from "../../../assets/images/weight-loss/consult.png";
+import Segmalutide from "../../../assets/images/weight-loss/segmalutide.png";
+import SegmalutideSerum from "../../../assets/images/weight-loss/segmalutide-serum.png";
+import Tirzepatide from "../../../assets/images/weight-loss/tirzepatide.png";
+
+
 const WeightLossPage = () => {
   const handleBuyNow = () => {
     console.log('Buy Now clicked');
@@ -52,7 +65,7 @@ const WeightLossPage = () => {
               </div>
               <div className="weightloss-intro-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  src={Consult}
                   alt="Weight Loss Transformation"
                   className="weightloss-intro-img"
                 />
@@ -67,7 +80,7 @@ const WeightLossPage = () => {
             <div className="weightloss-semaglutide-content">
               <div className="weightloss-semaglutide-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  src={Segmalutide}
                   alt="Semaglutide Treatment"
                   className="weightloss-semaglutide-img"
                 />
@@ -102,7 +115,7 @@ const WeightLossPage = () => {
               <div className="weightloss-feature">
                 <div className="weightloss-feature-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                    src={ApetiteControl} 
                     alt="Appetite Control"
                   />
                 </div>
@@ -115,7 +128,7 @@ const WeightLossPage = () => {
               <div className="weightloss-feature">
                 <div className="weightloss-feature-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                    src={MetabolicSupport}
                     alt="Metabolic Support"
                   />
                 </div>
@@ -128,7 +141,7 @@ const WeightLossPage = () => {
               <div className="weightloss-feature">
                 <div className="weightloss-feature-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                    src={SustainableResult}
                     alt="Sustainable Results"
                   />
                 </div>
@@ -144,13 +157,7 @@ const WeightLossPage = () => {
               <p className="weightloss-cta-text">
                 Take the first step toward sustainable weight loss with science-backed treatments.
               </p>
-              <button 
-                className="weightloss-btn weightloss-btn-primary"
-                onClick={handleLearnMore}
-              >
-                <span className="weightloss-btn-text">Learn More</span>
-                <span className="weightloss-btn-icon">→</span>
-              </button>
+             
             </div>
           </div>
         </section>
@@ -160,21 +167,21 @@ const WeightLossPage = () => {
           <div className="weightloss-container">
             <div className="weightloss-section-header">
               <h2 className="weightloss-section-title">
-                Choose Your <span className="weightloss-title-accent">Program</span>
+                Choose Your <span className="weightloss-title-accent">Products</span>
               </h2>
             </div>
             <div className="weightloss-product-cards">
               <div className="weightloss-product-card">
                 <div className="weightloss-product-image">
                   <img 
-                    src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                    alt="Tirzepatide Program"
+                    src = {Tirzepatide}
+                    alt="Tirzepatide "
                     className="weightloss-product-img"
                   />
                 </div>
                 <div className="weightloss-product-details">
                   <div className="weightloss-product-badge">MOST EFFECTIVE</div>
-                  <h3 className="weightloss-product-name">Tirzepatide Program</h3>
+                  <h3 className="weightloss-product-name">Tirzepatide </h3>
                   <p className="weightloss-product-description">
                     Advanced dual-action treatment for maximum weight loss results.
                   </p>
@@ -213,14 +220,15 @@ const WeightLossPage = () => {
               <div className="weightloss-product-card">
                 <div className="weightloss-product-image">
                   <img 
-                    src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                    alt="Semaglutide Program"
+                    src={SegmalutideSerum}
+
+                    alt="Semaglutide "
                     className="weightloss-product-img"
                   />
                 </div>
                 <div className="weightloss-product-details">
                   <div className="weightloss-product-badge">FDA APPROVED</div>
-                  <h3 className="weightloss-product-name">Semaglutide Program</h3>
+                  <h3 className="weightloss-product-name">Semaglutide </h3>
                   <p className="weightloss-product-description">
                     Proven weight loss treatment with established success rates.
                   </p>
@@ -250,7 +258,7 @@ const WeightLossPage = () => {
                     className="weightloss-btn weightloss-btn-primary"
                     onClick={handleBuyNow}
                   >
-                    <span className="weightloss-btn-text">Get Started</span>
+                    <span className="weightloss-btn-text">Buy Now</span>
                     <span className="weightloss-btn-icon">→</span>
                   </button>
                 </div>

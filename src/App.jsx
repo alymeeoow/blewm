@@ -10,8 +10,8 @@ import Vitamins from "./components/pages/lifestyle-medication/vitamins";
 
 
 // import Contact from "./components/pages/contact";
-// import About from "./components/pages/about";
-// import Concierge from "./components/pages/concierge";
+import About from "./components/pages/about";
+import Concierge from "./components/pages/concierge";
 // import FAQs from "./components/pages/faqs";
 // import GiftCards from "./components/pages/giftCards";
 // import Packages from "./components/pages/packages";
@@ -67,9 +67,9 @@ function App() {
         {/* <Route path="/gift-cards" element={<GiftCards />} /> */}
         {/* <Route path="/packages" element={<Packages />} /> */}
         
-{/*    
-        <Route path="/concierge" element={<Concierge />} /> */}
-        {/* <Route path="/about" element={<About />} /> */}
+   
+        <Route path="/concierge" element={<Concierge />} />
+        <Route path="/about" element={<About />} />
         
     
         {/* <Route path="/book-now" element={<BookNow />} /> */}

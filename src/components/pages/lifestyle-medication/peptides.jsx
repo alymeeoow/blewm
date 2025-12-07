@@ -2,6 +2,8 @@ import React from 'react';
 import '../../../assets/styles/pages/peptides.css';
 import PeptidesDrop from "../../../assets/images/peptides/peptides-drops.png";
 import MuscleRecovery from "../../../assets/images/peptides/muscle.png";
+import PeptidesProduct from "../../../assets/images/peptides/peptides-product.png";
+
 
 const PeptidesPage = () => {
   const handleBuyNow = () => {
@@ -242,13 +244,13 @@ const PeptidesPage = () => {
             <div className="peptides-product-card">
               <div className="peptides-product-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  src = {PeptidesProduct}
                   alt="Premium Peptide Formula" 
                   className="peptides-product-img"
                 />
               </div>
               <div className="peptides-product-details">
-                <div className="peptides-product-badge">BEST SELLER</div>
+               
                 <h3 className="peptides-product-name">Premium Recovery Peptide Complex</h3>
                 <p className="peptides-product-description">
                   Our most advanced peptide formulation designed to accelerate muscle recovery, 
