@@ -9,12 +9,12 @@ import Vitamins from "./components/pages/lifestyle-medication/vitamins";
  import Weightloss from "./components/pages/lifestyle-medication/weightloss";
 
 
-// import Contact from "./components/pages/contact";
+import Contact from "./components/pages/contact";
 import About from "./components/pages/about";
 import Concierge from "./components/pages/concierge";
-// import FAQs from "./components/pages/faqs";
+import FAQs from "./components/pages/faq";
 // import GiftCards from "./components/pages/giftCards";
-// import Packages from "./components/pages/packages";
+import Packages from "./components/pages/packages";
 // import BookNow from "./components/pages/bookNow";
 
 
@@ -61,11 +61,11 @@ function App() {
         {/* <Route path="/services/im-therapy" element={<PlaceholderPage title="IM Therapy" />} /> */}
         {/* <Route path="/services/test-kits" element={<PlaceholderPage title="Test Kits" />} /> */}
         
-{/*       
-        <Route path="/contact" element={<Contact />} /> */}
-        {/* <Route path="/faqs" element={<FAQs />} /> */}
+      
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/faqs" element={<FAQs />} />
         {/* <Route path="/gift-cards" element={<GiftCards />} /> */}
-        {/* <Route path="/packages" element={<Packages />} /> */}
+        <Route path="/packages" element={<Packages />} />
         
    
         <Route path="/concierge" element={<Concierge />} />

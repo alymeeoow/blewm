@@ -3,7 +3,7 @@ import '../../../assets/styles/pages/weightloss.css';
 
 
 
-import WeightLoss from "../../../assets/images/weight-loss/weight-loss.png";
+import WeightLoss from "../../../assets/images/weight-loss/weight-loss.webp";
 
 import ApetiteControl from "../../../assets/images/weight-loss/apetite-control.png";
 
