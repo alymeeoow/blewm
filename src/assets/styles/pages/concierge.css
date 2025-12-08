@@ -1,0 +1,897 @@
+
+
+@import url('../../../App.css');
+
+.concierge-page {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background: var(--white);
+}
+
+.concierge-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.concierge-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.concierge-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.concierge-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.concierge-title-accent {
+  color: var(--primary-color);
+  display: inline-block;
+  position: relative;
+}
+
+.concierge-title-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-color-light));
+  border-radius: 2px;
+}
+
+.concierge-section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-medium);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.concierge-btn {
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+}
+
+.concierge-btn-primary {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.concierge-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(42, 127, 98, 0.3);
+}
+
+.concierge-btn-secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.concierge-btn-secondary:hover {
+  background: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+.concierge-btn-large {
+  padding: 18px 36px;
+  font-size: 1.2rem;
+}
+
+.concierge-btn-text {
+  font-size: 1.1rem;
+}
+
+.concierge-btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.concierge-btn-primary:hover .concierge-btn-icon {
+  transform: translateX(4px);
+}
+
+/* Hero Section */
+.concierge-hero {
+  height: 100vh;
+  min-height: 700px;
+  position: relative;
+  overflow: hidden;
+}
+
+.concierge-hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.concierge-hero-image {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.concierge-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.concierge-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.concierge-hero-title {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  line-height: 1.1;
+}
+
+.concierge-hero-tagline {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+.concierge-hero-subtitle {
+  font-size: 1.3rem;
+  color: var(--white);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* Pricing Section */
+.concierge-pricing {
+  background: var(--background-light);
+}
+
+.concierge-pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.concierge-pricing-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.concierge-pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.concierge-pricing-card-featured {
+  border-color: var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.concierge-pricing-card-featured::before {
+  content: 'POPULAR';
+  position: absolute;
+  top: 20px;
+  right: -35px;
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 8px 40px;
+  transform: rotate(45deg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.concierge-pricing-header {
+  margin-bottom: 30px;
+}
+
+.concierge-pricing-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.concierge-pricing-badge {
+  display: inline-block;
+  background: var(--background-light);
+  color: var(--text-medium);
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.concierge-pricing-badge.featured {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.concierge-price-container {
+  margin-bottom: 30px;
+}
+
+.concierge-price {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.concierge-price-period {
+  font-size: 1.2rem;
+  color: var(--text-medium);
+  font-weight: 500;
+}
+
+.concierge-savings {
+  margin-bottom: 30px;
+}
+
+.concierge-savings-badge {
+  display: inline-block;
+  background: #48bb78;
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.concierge-pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  text-align: left;
+}
+
+.concierge-pricing-features li {
+  padding: 12px 0;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  padding-left: 25px;
+}
+
+.concierge-pricing-features li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.concierge-pricing-features li:last-child {
+  border-bottom: none;
+}
+
+/* Benefits Section */
+.concierge-benefits {
+  background: var(--white);
+}
+
+.concierge-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.concierge-benefit-card {
+  background: var(--background-light);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.concierge-benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color-light);
+}
+
+.concierge-benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.concierge-benefit-card:hover::before {
+  transform: scaleX(1);
+}
+
+.concierge-benefit-icon {
+  position: relative;
+  margin-bottom: 25px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 200px;
+}
+
+.concierge-icon-number {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--primary-color);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.concierge-benefit-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.concierge-benefit-card:hover .concierge-benefit-img {
+  transform: scale(1.05);
+}
+
+.concierge-benefit-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.concierge-benefit-text {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Features Section */
+.concierge-features {
+  background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
+}
+
+.concierge-features-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.concierge-features-text {
+  padding-right: 20px;
+}
+
+.concierge-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.concierge-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.concierge-feature:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-md);
+}
+
+.concierge-feature-icon {
+  background: var(--primary-color);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.concierge-feature-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.concierge-feature-content p {
+  font-size: 1rem;
+  color: var(--text-medium);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.concierge-features-image {
+
+    
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.concierge-features-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.concierge-features-image:hover .concierge-features-img {
+  transform: scale(1.05);
+}
+
+/* Investment Section */
+.concierge-investment {
+  background: var(--white);
+}
+
+.concierge-investment-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.concierge-investment-card {
+  background: var(--background-light);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  border: 2px solid var(--border-color);
+}
+
+.concierge-investment-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.concierge-investment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.concierge-investment-list li {
+  padding: 12px 0;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  padding-left: 30px;
+}
+
+.concierge-investment-list li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.concierge-investment-list li:last-child {
+  border-bottom: none;
+}
+
+.concierge-investment-cta {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(135deg, var(--primary-color-light), var(--primary-color));
+  border-radius: var(--radius-lg);
+  color: var(--white);
+}
+
+.concierge-investment-text {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.95;
+}
+
+/* Results Section - UPDATED WITH IMAGES */
+.concierge-results {
+  background: var(--background-light);
+}
+
+.concierge-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.concierge-result-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  text-align: center;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.concierge-result-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-color-light);
+}
+
+.concierge-result-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.concierge-result-card:hover::before {
+  transform: scaleX(1);
+}
+
+.concierge-result-icon {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.concierge-result-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.concierge-result-card:hover .concierge-result-img {
+  transform: scale(1.1);
+}
+
+.concierge-result-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(42, 127, 98, 0.85);
+  padding: 8px 0;
+  text-align: center;
+}
+
+.concierge-result-label {
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.concierge-result-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.concierge-result-text {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 20px;
+  min-height: 80px;
+}
+
+.concierge-result-person {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+}
+
+.concierge-result-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.concierge-result-role {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .concierge-section {
+    padding: 60px 0;
+  }
+  
+  .concierge-section-title {
+    font-size: 2rem;
+  }
+  
+  .concierge-hero-title {
+    font-size: 3.2rem;
+  }
+  
+  .concierge-hero-tagline {
+    font-size: 1.5rem;
+  }
+  
+  .concierge-hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .concierge-pricing-cards {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+  
+  .concierge-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .concierge-features-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .concierge-features-text {
+    padding-right: 0;
+  }
+  
+  .concierge-investment-cards {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .concierge-results-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .concierge-result-icon {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 768px) {
+  .concierge-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .concierge-hero-tagline {
+    font-size: 1.2rem;
+  }
+  
+  .concierge-section-title {
+    font-size: 1.8rem;
+  }
+  
+  .concierge-price {
+    font-size: 2.8rem;
+  }
+  
+  .concierge-benefit-icon {
+    height: 180px;
+  }
+  
+  .concierge-feature {
+    padding: 15px;
+  }
+  
+  .concierge-investment-cta {
+    padding: 30px 20px;
+  }
+  
+  .concierge-result-icon {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .concierge-result-title {
+    font-size: 1.3rem;
+  }
+  
+  .concierge-result-text {
+    font-size: 1rem;
+    min-height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .concierge-hero-title {
+    font-size: 2rem;
+  }
+  
+  .concierge-hero-tagline {
+    font-size: 1rem;
+  }
+  
+  .concierge-container {
+    padding: 0 15px;
+  }
+  
+  .concierge-pricing-card {
+    padding: 30px 20px;
+  }
+  
+  .concierge-benefit-card {
+    padding: 25px 20px;
+  }
+  
+  .concierge-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .concierge-btn-large {
+    padding: 15px 25px;
+    font-size: 1rem;
+  }
+  
+  .concierge-result-card {
+    padding: 25px 20px;
+  }
+  
+  .concierge-result-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .concierge-result-text {
+    min-height: 60px;
+  }
+}
+
+/* Animations */
+@keyframes concierge-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.concierge-pricing-card,
+.concierge-benefit-card,
+.concierge-feature,
+.concierge-investment-card,
+.concierge-result-card {
+  animation: concierge-fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.concierge-pricing-card:nth-child(1) { animation-delay: 0.1s; }
+.concierge-pricing-card:nth-child(2) { animation-delay: 0.2s; }
+
+.concierge-benefit-card:nth-child(1) { animation-delay: 0.1s; }
+.concierge-benefit-card:nth-child(2) { animation-delay: 0.2s; }
+.concierge-benefit-card:nth-child(3) { animation-delay: 0.3s; }
+.concierge-benefit-card:nth-child(4) { animation-delay: 0.4s; }
+
+.concierge-feature:nth-child(1) { animation-delay: 0.1s; }
+.concierge-feature:nth-child(2) { animation-delay: 0.2s; }
+.concierge-feature:nth-child(3) { animation-delay: 0.3s; }
+.concierge-feature:nth-child(4) { animation-delay: 0.4s; }
+
+.concierge-result-card:nth-child(1) { animation-delay: 0.1s; }
+.concierge-result-card:nth-child(2) { animation-delay: 0.2s; }
+.concierge-result-card:nth-child(3) { animation-delay: 0.3s; }
+.concierge-result-card:nth-child(4) { animation-delay: 0.4s; }

@@ -1,0 +1,812 @@
+/* Add this at the very top of your weightloss.css file */
+@import url('../../../App.css');
+
+.weightloss-page {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background: var(--white);
+}
+
+.weightloss-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   TYPOGRAPHY & REUSABLE COMPONENTS
+============================================= */
+.weightloss-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.weightloss-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.weightloss-section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.weightloss-title-accent {
+  color: var(--primary-color);
+  display: inline-block;
+  position: relative;
+}
+
+.weightloss-title-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-color-light));
+  border-radius: 2px;
+}
+
+.weightloss-btn {
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+}
+
+.weightloss-btn-primary {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.weightloss-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(42, 127, 98, 0.3);
+}
+
+.weightloss-btn-text {
+  font-size: 1rem;
+}
+
+.weightloss-btn-icon {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.weightloss-btn-primary:hover .weightloss-btn-icon {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   HERO SECTION
+============================================= */
+.weightloss-hero {
+  height: 100vh;
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.weightloss-hero-image-container {
+  position: absolute;
+  top: 0;
+  object-fit: stretch;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.weightloss-hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.weightloss-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.weightloss-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 100vw;
+  padding: 0 20px;
+}
+
+.weightloss-hero-title {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  line-height: 1.1;
+}
+
+.weightloss-hero-tagline {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+/* ============================================
+   INTRODUCTION SECTION
+============================================= */
+.weightloss-intro {
+  background: var(--background-light);
+}
+
+.weightloss-intro-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.weightloss-intro-text {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+}
+
+.weightloss-intro-paragraph {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.weightloss-intro-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.weightloss-intro-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.weightloss-intro-image:hover .weightloss-intro-img {
+  transform: scale(1.03);
+}
+
+/* ============================================
+   SEMAGLUTIDE SECTION
+============================================= */
+.weightloss-semaglutide {
+  background: linear-gradient(135deg, var(--background-lighter), var(--background-light));
+}
+
+.weightloss-semaglutide-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.weightloss-semaglutide-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.weightloss-semaglutide-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.weightloss-semaglutide-image:hover .weightloss-semaglutide-img {
+  transform: scale(1.03);
+}
+
+.weightloss-semaglutide-text {
+  padding: 0;
+}
+
+.weightloss-semaglutide-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.weightloss-semaglutide-paragraph {
+  font-size: 1rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.weightloss-semaglutide-note {
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+  padding: 15px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--primary-color);
+  margin-top: 25px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   HOW IT WORKS SECTION
+============================================= */
+.weightloss-how-it-works {
+  background: var(--background-light);
+  border-top: 1px solid var(--border-color);
+}
+
+.weightloss-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.weightloss-feature {
+  text-align: center;
+  padding: 40px 30px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border: 2px solid transparent;
+  position: relative; /* ADD THIS LINE - crucial for ::before positioning */
+  overflow: hidden; /* Optional: keeps ::before contained within border-radius */
+}
+
+.weightloss-feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 1; /* Optional: ensures it stays on top */
+}
+
+.weightloss-feature:hover::before {
+  transform: scaleX(1);
+}
+
+.weightloss-feature:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+
+}
+
+/* FIXED: Same border radius for icon container and image */
+.weightloss-feature-icon {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Circle shape for container */
+  padding: 0; /* Remove padding to make image bigger */
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, var(--primary-color-light), var(--primary-color));
+  box-shadow: 0 8px 25px rgba(42, 127, 98, 0.2);
+  overflow: hidden; /* Ensures image stays within circle */
+}
+
+/* FIXED: Image inside the icon - matches container size and shape */
+.weightloss-feature-icon img {
+  width: 100%; /* Fill the entire container */
+  height: 100%; /* Fill the entire container */
+  object-fit: cover; /* Makes image fill the circle properly */
+  border-radius: 50%; /* Same border radius as container */
+  display: block;
+}
+
+.weightloss-feature-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.weightloss-feature-text {
+  font-size: 1.05rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.weightloss-cta-box {
+  padding: 50px 40px;
+  background: linear-gradient(135deg, #1a6b4e, #2a7f62);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.weightloss-cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.weightloss-cta-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.weightloss-cta-box .weightloss-btn-primary {
+  background: #ffffff;
+  color: #2a7f62;
+  font-weight: 700;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+}
+
+.weightloss-cta-box .weightloss-btn-primary:hover {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+/* ============================================
+   PRODUCT SECTION
+============================================= */
+.weightloss-product {
+  background: var(--background-light);
+  border-top: 1px solid var(--border-color);
+}
+
+
+
+
+
+.weightloss-product-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+  position: relative; /* ADD THIS LINE */
+}
+
+.weightloss-product-cards::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: black;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.weightloss-product-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+}
+
+.weightloss-product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.weightloss-product-image {
+  position: relative;
+  overflow: hidden;
+  height: 450px;
+}
+
+.weightloss-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.weightloss-product-card:hover .weightloss-product-img {
+  transform: scale(1.05);
+  border-color: var(--primary-dark);
+  box-shadow: 0 6px 20px rgba(34, 72, 136, 0.25);
+}
+
+.weightloss-product-details {
+  padding: 25px;
+}
+
+.weightloss-product-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+  color: var(--white);
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.weightloss-product-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.weightloss-product-description {
+  font-size: 1rem;
+  color: var(--text-medium);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.weightloss-product-features {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.weightloss-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.weightloss-feature-check {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.weightloss-product-pricing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: var(--background-light);
+  border-radius: var(--radius-md);
+}
+
+.weightloss-price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.weightloss-price-old {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+
+.weightloss-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.weightloss-price-month {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+}
+
+.weightloss-savings {
+  background: #48bb78;
+  color: var(--white);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ============================================
+   COMPANY INFO SECTION
+============================================= */
+.weightloss-company-info {
+  padding: 30px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--primary-color-light);
+  text-align: center;
+}
+
+.weightloss-company-text {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.weightloss-company-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.weightloss-company-description {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+============================================= */
+@media (max-width: 1200px) {
+  .weightloss-hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .weightloss-section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .weightloss-section {
+    padding: 60px 0;
+  }
+  
+  .weightloss-section-header {
+    margin-bottom: 40px;
+  }
+  
+  .weightloss-section-title {
+    font-size: 1.8rem;
+  }
+  
+  .weightloss-hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .weightloss-hero-tagline {
+    font-size: 1.2rem;
+  }
+  
+  .weightloss-intro-content,
+  .weightloss-semaglutide-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .weightloss-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .weightloss-product-cards {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  /* Tablet icon sizes */
+  .weightloss-feature-icon {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .weightloss-feature-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .weightloss-hero {
+    height: 100vh;
+    min-height: 500px;
+  }
+  
+  .weightloss-hero-title {
+    font-size: 2.4rem;
+  }
+  
+  .weightloss-hero-tagline {
+    font-size: 1.1rem;
+  }
+  
+  .weightloss-section-title {
+    font-size: 1.8rem;
+  }
+  
+  .weightloss-features-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .weightloss-feature {
+    padding: 35px 25px;
+  }
+  
+  .weightloss-cta-box {
+    padding: 40px 25px;
+  }
+  
+  .weightloss-cta-title {
+    font-size: 1.8rem;
+  }
+  
+  .weightloss-product-pricing {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .weightloss-company-title {
+    font-size: 1.3rem;
+  }
+  
+  /* Mobile icon sizes */
+  .weightloss-feature-icon {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 25px;
+  }
+  
+  .weightloss-feature-title {
+    font-size: 1.25rem;
+  }
+  
+  .weightloss-feature-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .weightloss-hero-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  
+  .weightloss-hero-tagline {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+  
+  .weightloss-section-title {
+    font-size: 1.6rem;
+  }
+  
+  .weightloss-container {
+    padding: 0 15px;
+  }
+  
+  .weightloss-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Small mobile icon sizes */
+  .weightloss-feature-icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+  
+  .weightloss-product-name {
+    font-size: 1.3rem;
+  }
+  
+  .weightloss-price {
+    font-size: 1.5rem;
+  }
+  
+  .weightloss-feature-title {
+    font-size: 1.2rem;
+  }
+  
+  .weightloss-feature-text {
+    font-size: 0.95rem;
+  }
+  
+  .weightloss-cta-box .weightloss-btn-primary {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Extra small devices */
+  .weightloss-feature-icon {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .weightloss-hero-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+============================================= */
+@keyframes weightloss-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.weightloss-product-card {
+  animation: weightloss-fadeInUp 0.6s ease-out;
+}
+
+.weightloss-feature {
+  animation: weightloss-fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.weightloss-feature:nth-child(1) { animation-delay: 0.1s; }
+.weightloss-feature:nth-child(2) { animation-delay: 0.2s; }
+.weightloss-feature:nth-child(3) { animation-delay: 0.3s; }
