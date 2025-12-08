@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../assets/styles/pages/comingSoon.css';
-import BlewmLogo from "../../assets/images/logo/arp-bg-none.png";
+import BlewmLogo from "../../assets/images/logo/blewmswirl.png";
 import BlewmTextLogo from "../../assets/images/logo/blewm-word.png";
 import AvenirMediumTTF from "../../../font/AvenirMedium/avenirMedium.ttf";
 import LT from "../../../font/AvenirMedium/ltMuseum.ttf";

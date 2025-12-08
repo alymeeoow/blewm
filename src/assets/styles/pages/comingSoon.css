@@ -66,8 +66,8 @@ height: 90vh;
 }
 
 .coming-soon-swirl-logo {
-  width: 900px;
-  height: 480px;
+  width: 250px;
+  height: 250px;
   object-fit: contain;
   display: block;
   animation: spinSlow 8s linear infinite;
