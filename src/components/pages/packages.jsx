@@ -4,6 +4,7 @@ import { FaCalendarAlt } from 'react-icons/fa';
 
 import PackageHero from "../../assets/images/package/package-hero.png"
 import PackageProduct from "../../assets/images/package/product.png"
+import Footer from '../pages/footer'
 
 
 const Packages = () => {
@@ -109,7 +110,7 @@ const Packages = () => {
           />
           <div className="packages-hero-overlay"></div>
           <div className="packages-hero-content">
-            <h1 className="packages-hero-title">Packages</h1>
+            <h1 className="packages-hero-title">PACKAGES</h1>
             <p className="packages-hero-subtitle">
               Invest in your health with our curated wellness packages 
               designed for optimal results and significant savings
@@ -123,7 +124,7 @@ const Packages = () => {
         <div className="packages-container">
           <div className="packages-section-header">
             <h2 className="packages-section-title">
-              Our <span className="packages-title-accent">Blewm Package</span> Plans
+              Our <span className="packages-title-accent">Blewm Package</span> 
             </h2>
             <p className="packages-section-subtitle">
               Promote regular health and wellness while saving money with package discounts
@@ -261,6 +262,7 @@ const Packages = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

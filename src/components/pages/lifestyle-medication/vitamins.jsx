@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../assets/styles/pages/vitamins.css';
 import Vitamins from "../../../assets/images/vitamins/inject.png";
 import VitaminsProd from "../../../assets/images/vitamins/vit-products.png";
+import Footer from '../../pages/footer'
 
 const VitaminsPage = () => {
   const handleBuyNow = () => {
@@ -212,6 +213,7 @@ const VitaminsPage = () => {
           </div>
         </section>
       </div>
+      <Footer/>
     </div>
   );
 };

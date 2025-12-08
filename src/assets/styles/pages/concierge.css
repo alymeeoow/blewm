@@ -1,4 +1,4 @@
-/* concierge.css - UPDATED WITH IMAGES IN RESULTS SECTION */
+
 
 @import url('../../../App.css');
 
@@ -7,7 +7,7 @@
   height: 100vh;
   overflow-x: hidden;
   position: relative;
-  background: white;
+  background: var(--white);
 }
 
 .concierge-container {
@@ -170,7 +170,7 @@
 }
 
 .concierge-hero-title {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 900;
   color: var(--white);
   letter-spacing: 3px;

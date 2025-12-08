@@ -6,6 +6,7 @@ import DrGreg from "../../assets/images/about/dr-greg.png";
 import DrSosa from "../../assets/images/about/dr-sosa.png";
 import DrJoel from "../../assets/images/about/dr-joel.png";
 import Plank from "../../assets/images/about/plank.png";
+import Footer from '../pages/footer'
 
 import { FaBolt, FaDumbbell, FaBrain } from 'react-icons/fa';
 const AboutPage = () => {
@@ -259,6 +260,8 @@ const AboutPage = () => {
         onClose={handleCloseModal}
         leader={selectedLeader}
       />
+
+      <Footer/>
     </div>
   );
 };

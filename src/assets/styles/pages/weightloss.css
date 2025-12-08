@@ -6,7 +6,7 @@
   height: 100vh;
   overflow-x: hidden;
   position: relative;
-  background: white;
+  background: var(--white);
 }
 
 .weightloss-container {

@@ -3,6 +3,7 @@ import '../../assets/styles/pages/faq.css';
 import { FaChevronDown, FaChevronUp, FaSyringe, FaHeartbeat, FaCapsules, FaChild, FaClock, FaVial, FaFlask } from 'react-icons/fa';
 
 import FaqHero from "../../assets/images/faq/faq.png";
+import Footer from '../pages/footer'
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -163,7 +164,9 @@ const FAQ = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
+    
   );
 };
 

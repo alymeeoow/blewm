@@ -6,7 +6,7 @@
   height: 100vh;
   overflow-x: hidden;
   position: relative;
-  background: white;
+  background: var(--white);
 }
 
 .peptides-container {
@@ -255,7 +255,7 @@
 }
 
 .peptides-hero-title {
-  font-size: 4.5rem;
+ font-size: 4.5rem;
   font-weight: 900;
   color: var(--white);
   letter-spacing: 4px;
@@ -301,12 +301,13 @@
 
 /* Delivery Section */
 .peptides-delivery {
-  background: var(--white);
+    background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
+
 }
 
 /* Science Section */
 .peptides-science {
-  background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
+  background: var(--white);
 }
 
 .peptides-science-content {

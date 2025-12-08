@@ -67,8 +67,8 @@ height: 100vh;
 
 
 .faq-hero-title {
-    font-size: 4rem;
-    font-weight: 900;
+     font-size: 4.5rem;
+  font-weight: 900;
     color: var(--white);
     letter-spacing: 3px;
     margin-bottom: 20px;

@@ -4,7 +4,7 @@
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
-  background: var(--background-light);
+   background: var(--white);
 }
 
 .packages-container {
@@ -149,8 +149,8 @@
 }
 
 .packages-hero-title {
-  font-size: 3.5rem;
-  font-weight: 800;
+   font-size: 4.5rem;
+  font-weight: 900;
   color: var(--white);
   margin-bottom: 20px;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);

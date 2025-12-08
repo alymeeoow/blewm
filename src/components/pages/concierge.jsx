@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../assets/styles/pages/concierge.css';
-
+import Footer from '../pages/footer'
 import ConciergeHero from "../../assets/images/concierge/concierge-hero.png"
 import HappyPatient from "../../assets/images/concierge/happy-patient.png"
 import UnliAccess from "../../assets/images/concierge/unli-access.png"
@@ -367,8 +367,10 @@ const ConciergePage = () => {
           </div>
         </div>
       </section>
+            <Footer/>
     </div>
   );
 };
+
 
 export default ConciergePage;

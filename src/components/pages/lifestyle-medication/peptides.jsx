@@ -3,7 +3,7 @@ import '../../../assets/styles/pages/peptides.css';
 import PeptidesDrop from "../../../assets/images/peptides/peptides-drops.png";
 import MuscleRecovery from "../../../assets/images/peptides/muscle.png";
 import PeptidesProduct from "../../../assets/images/peptides/peptides-product.png";
-
+import Footer from '../../pages/footer'
 
 const PeptidesPage = () => {
   const handleBuyNow = () => {
@@ -289,6 +289,7 @@ const PeptidesPage = () => {
             </div>
           </div>
         </section>
+        <Footer/>
       </div>
     </div>
   );

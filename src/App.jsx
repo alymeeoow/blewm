@@ -2,24 +2,26 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from "./components/pages/header";
+import Footer from "./components/pages/footer";
 import Hero from "./components/pages/hero";
 import ComingSoon from "./components/pages/comingSoon";
+
+import LifestyleMedicationsPage from './components/pages/lifestyle-medication/lifestyleMedication';
+import IMTherapy from './components/pages/imTherapy';
+import IVTherapy from './components/pages/ivTherapy';
+import TestKitsPage from './components/pages/testKits';
+
 import Peptides from "./components/pages/lifestyle-medication/peptides"; 
 import Vitamins from "./components/pages/lifestyle-medication/vitamins";
- import Weightloss from "./components/pages/lifestyle-medication/weightloss";
-
+import Weightloss from "./components/pages/lifestyle-medication/weightloss";
 
 import Contact from "./components/pages/contact";
 import About from "./components/pages/about";
 import Concierge from "./components/pages/concierge";
 import FAQs from "./components/pages/faq";
-// import GiftCards from "./components/pages/giftCards";
+import GiftCards from "./components/pages/giftCards";
 import Packages from "./components/pages/packages";
 // import BookNow from "./components/pages/bookNow";
-
-
-
-
 
 const PlaceholderPage = ({ title }) => {
   return (
@@ -36,50 +38,43 @@ function App() {
   return (
     <Router>
       <Header/>
+      
       <Routes>
-        <Route path="/" element={
-          <>
-            {/* <ComingSoon/> */}
-            <Hero/>
-          </>
-        } />
+        {/* Home Page */}
+        <Route path="/" element={<Hero />} />
         
-        {/* Lifestyle Medications Routes */}
-        {/* <Route path="/services/lifestyle-medications" element={
-          <div style={{ padding: '100px 20px', textAlign: 'center' }}>
-            <h1>Lifestyle Medications</h1>
-            <p>Select a specific treatment option from the dropdown menu.</p>
-          </div>
-        } /> */}
+        {/* Services with /services/ prefix */}
+        <Route path="/services/im-therapy" element={<IMTherapy />} />
+        <Route path="/services/iv-therapy" element={<IVTherapy />} />
+        <Route path="/services/test-kits" element={<TestKitsPage />} />
+        <Route path="/services/lifestyle-medications" element={<LifestyleMedicationsPage />} />
         
+        {/* Lifestyle Medications Sub-pages */}
         <Route path="/services/lifestyle-medications/peptides" element={<Peptides />} />
-       <Route path="/services/lifestyle-medications/vitamins" element={<Vitamins />} />
+        <Route path="/services/lifestyle-medications/vitamins" element={<Vitamins />} />
         <Route path="/services/lifestyle-medications/weightloss" element={<Weightloss />} />
-      
-     
-        {/* <Route path="/services/iv-therapy" element={<PlaceholderPage title="IV Therapy" />} /> */}
-        {/* <Route path="/services/im-therapy" element={<PlaceholderPage title="IM Therapy" />} /> */}
-        {/* <Route path="/services/test-kits" element={<PlaceholderPage title="Test Kits" />} /> */}
         
-      
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/faqs" element={<FAQs />} />
-        {/* <Route path="/gift-cards" element={<GiftCards />} /> */}
-        <Route path="/packages" element={<Packages />} />
-        
-   
+        {/* Main Pages (no /services/ prefix) */}
         <Route path="/concierge" element={<Concierge />} />
+        <Route path="/packages" element={<Packages />} />
+        <Route path="/gift-cards" element={<GiftCards />} />
+        
+        {/* Informational Pages */}
         <Route path="/about" element={<About />} />
+        <Route path="/faq" element={<FAQs />} />
+        <Route path="/contact" element={<Contact />} />
         
-    
+        {/* Booking */}
         {/* <Route path="/book-now" element={<BookNow />} /> */}
-        {/* <Route path="/book-now/lifestyle-medication" element={<BookNow serviceType="lifestyle-medication" />} /> */}
         
-    
+        {/* Coming Soon */}
         <Route path="/coming-soon" element={<ComingSoon />} />
         
-        <Route path="*" element={<ComingSoon  />} />
+        {/* 404 - Not Found */}
+        <Route path="*" element={<ComingSoon />} />
+        
       </Routes>
+
     </Router>
   )
 }

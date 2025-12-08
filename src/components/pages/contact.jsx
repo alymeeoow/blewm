@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../../assets/styles/pages/contact.css';
 import ContactForm from '../modal/contactModal';
+
+import Footer from '../pages/footer'
 import { 
   FaPhone, 
   FaEnvelope, 
@@ -66,7 +68,7 @@ const Contact = () => {
           <div className="contact-hero-overlay"></div>
         </div>
         <div className="contact-hero-content">
-          <h1 className="contact-hero-title">Get In Touch</h1>
+          <h1 className="contact-hero-title">GET IN TOUCH</h1>
           <p className="contact-hero-subtitle">
             Connect with our medical team for personalized wellness guidance
           </p>
@@ -144,7 +146,10 @@ const Contact = () => {
             </div>
           </div>
         </div>
+        
+
       </section>
+      <Footer/>
     </div>
   );
 };

@@ -229,7 +229,7 @@ const Header = () => {
 
   const learnMoreItems = [
     { text: "Contact", path: "/contact" },
-    { text: "FAQs", path: "/faqs" },
+    { text: "FAQs", path: "/faq" },
     { text: "Gift Cards", path: "/gift-cards" },
     { text: "Packages", path: "/packages" },
   ];
@@ -274,6 +274,19 @@ const Header = () => {
     };
   }, [isMobile]);
 
+  // Helper function to check if we're on a service page or its subpages
+  const isServiceActive = (servicePath) => {
+    // Check if current path starts with service path
+    // Also check if it's exactly the service path OR a subpage of it
+    return location.pathname === servicePath || location.pathname.startsWith(servicePath + '/');
+  };
+
+  // Helper function to check if we're on a specific dropdown item
+  const isDropdownItemActive = (servicePath, itemName) => {
+    const itemPath = `${servicePath}/${itemName.toLowerCase().replace(/\s+/g, '-')}`;
+    return location.pathname === itemPath || location.pathname.startsWith(itemPath + '/');
+  };
+
   return (
     <header className="header">
       <div className="container">
@@ -293,7 +306,7 @@ const Header = () => {
               onMouseLeave={() => handleDropdownMouseLeave(index)}
             >
               <button 
-                className={`dropdown-btn ${openDropdown === index ? 'active' : ''} ${location.pathname.startsWith(service.path) ? 'active-page' : ''}`}
+                className={`dropdown-btn ${openDropdown === index ? 'active' : ''} ${isServiceActive(service.path) ? 'active-page' : ''}`}
                 onClick={() => {
                   handleMobileClick('service', index);
                   // On desktop or when clicking the main button, navigate to service page
@@ -322,14 +335,18 @@ const Header = () => {
               </button>
               
               <div className={`dropdown-menu ${openDropdown === index ? 'open' : ''}`}>
-               
+                {/* You can also highlight active dropdown items if needed */}
                 {service.items.map((item, itemIndex) => (
                   <Link 
                     key={itemIndex} 
                     to={`${service.path}/${item.toLowerCase().replace(/\s+/g, '-')}`}
                     onClick={handleNavClick}
+                    className={isDropdownItemActive(service.path, item) ? 'active-dropdown-item' : ''}
                   >
                     {item}
+                    {isDropdownItemActive(service.path, item) && (
+                      <span className="active-indicator"></span>
+                    )}
                   </Link>
                 ))}
               </div>
@@ -370,8 +387,12 @@ const Header = () => {
                   key={index} 
                   to={item.path}
                   onClick={handleNavClick}
+                  className={location.pathname === item.path ? 'active-dropdown-item' : ''}
                 >
                   {item.text}
+                  {location.pathname === item.path && (
+                    <span className="active-indicator"></span>
+                  )}
                 </Link>
               ))}
             </div>
@@ -432,9 +453,13 @@ const Header = () => {
                   key={index}
                   to={option.path}
                   onClick={handleNavClick}
+                  className={location.pathname === option.path ? 'active-dropdown-item' : ''}
                 >
                   {option.icon}
                   {option.text}
+                  {location.pathname === option.path && (
+                    <span className="active-indicator"></span>
+                  )}
                 </Link>
               ))}
               <div className="divider"></div>

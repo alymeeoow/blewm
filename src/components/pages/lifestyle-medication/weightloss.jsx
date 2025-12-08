@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../assets/styles/pages/weightloss.css';
-
+import Footer from '../../pages/footer'
 
 
 import WeightLoss from "../../../assets/images/weight-loss/weight-loss.webp";
@@ -270,6 +270,7 @@ const WeightLossPage = () => {
           </div>
         </section>
       </div>
+      <Footer/>
     </div>
   );
 };
