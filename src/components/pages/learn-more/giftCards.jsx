@@ -95,7 +95,7 @@ const GiftCardPage = () => {
           <div
             className="gift-hero-image"
             style={{ 
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${GiftCardHero})`
+              backgroundImage: ` url(${GiftCardHero})`
             }}
           />
           <div className="gift-hero-overlay"></div>
