@@ -1,18 +1,17 @@
 import React from 'react';
 import '../../../assets/styles/pages/lifestyle.css';
 
-import LifeStyleHero from "../../../assets/images/lifestyle/lifestyle-hero.png"
-import WomanInject from "../../../assets/images/lifestyle/woman-inject.png"
-import Bench from "../../../assets/images/lifestyle/bench.png"
-import StomachInject from "../../../assets/images/lifestyle/stomach-inject.png"
-import HarnessPeptides from "../../../assets/images/lifestyle/harness-peptides.png"
-import Footer from '../../pages/footer'
+import LifeStyleHero from "../../../assets/images/lifestyle/lifestyle-hero.webp"
+import WomanInject from "../../../assets/images/lifestyle/woman-inject.webp"
+import Bench from "../../../assets/images/lifestyle/bench.webp"
+import StomachInject from "../../../assets/images/lifestyle/stomach-inject.webp"
+import HarnessPeptides from "../../../assets/images/lifestyle/harness-peptides.webp"
+import Footer from '../layout/footer'
 
 const LifestyleMedicationsPage = () => {
   return (
     <div className="lifestyle-page">
-      {/* Hero Section */}
-      <section className="lifestyle-hero">
+            <section className="lifestyle-hero">
         <div className="lifestyle-hero-images">
           <div className="lifestyle-hero-image-container">
            <div
@@ -23,13 +22,13 @@ const LifestyleMedicationsPage = () => {
           <div className="lifestyle-hero-image-container">
             <div
                       className="peptides-hero-image"
-                      style={{ backgroundImage: `url(${WomanInject})` }}
+                     
                     />
           </div>
           <div className="lifestyle-hero-image-container">
            <div
                       className="peptides-hero-image"
-                      style={{ backgroundImage: `url(${Bench})` }}
+                   
                     />
           </div>
         </div>
@@ -38,9 +37,9 @@ const LifestyleMedicationsPage = () => {
           <h1 className="lifestyle-hero-title">
             <span className="lifestyle-hero-main-title">Lifestyle Medications</span>
             <span className="lifestyle-hero-subtitles">
-              <span className="lifestyle-hero-subtitle">Vitamins.</span>
-              <span className="lifestyle-hero-subtitle">Peptides.</span>
-              <span className="lifestyle-hero-subtitle">Weight Loss.</span>
+              <span className="lifestyle-hero-subtitle">Vitamins, Peptides , Weightloss</span>
+            
+            
             </span>
           </h1>
           <p className="lifestyle-hero-tagline">
@@ -49,8 +48,7 @@ const LifestyleMedicationsPage = () => {
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="lifestyle-intro">
+            <section className="lifestyle-intro">
         <div className="lifestyle-container">
           <div className="lifestyle-intro-content">
             <h2 className="lifestyle-intro-title">
@@ -71,8 +69,7 @@ const LifestyleMedicationsPage = () => {
         </div>
       </section>
 
-      {/* Vitamins Section */}
-      <section className="lifestyle-section lifestyle-vitamins">
+            <section className="lifestyle-section lifestyle-vitamins">
         <div className="lifestyle-container">
           <div className="lifestyle-section-content">
             <div className="lifestyle-section-image">
@@ -102,8 +99,7 @@ const LifestyleMedicationsPage = () => {
         </div>
       </section>
 
-      {/* Peptides Section */}
-      <section className="lifestyle-section lifestyle-peptides">
+            <section className="lifestyle-section lifestyle-peptides">
         <div className="lifestyle-container">
           <div className="lifestyle-section-content reversed">
             <div className="lifestyle-section-text">
@@ -128,13 +124,12 @@ const LifestyleMedicationsPage = () => {
         </div>
       </section>
 
-      {/* Weight Loss Section */}
-      <section className="lifestyle-section lifestyle-weightloss">
+            <section className="lifestyle-section lifestyle-weightloss">
         <div className="lifestyle-container">
           <div className="lifestyle-section-content">
             <div className="lifestyle-section-image">
               <img 
-                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                src={Bench}
                 alt="Weight Loss" 
                 className="lifestyle-section-img" 
               />

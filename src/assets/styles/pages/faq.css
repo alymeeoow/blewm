@@ -87,7 +87,6 @@ height: 100vh;
   letter-spacing: 0.3px;
 }
 
-/* Main FAQ Section */
 .faq-section {
   padding: 5rem 0 4rem;
   background: linear-gradient(to bottom, 
@@ -150,7 +149,6 @@ height: 100vh;
   font-weight: 400;
 }
 
-/* FAQ Accordion Container */
 .faq-accordion-container {
   margin-bottom: 4rem;
 }
@@ -165,7 +163,6 @@ height: 100vh;
   border: 1px solid rgba(var(--primary-color-rgb, 59, 130, 246), 0.1);
 }
 
-/* FAQ Item - Fixed Border Issue */
 .faq-item {
   position: relative;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -179,20 +176,17 @@ height: 100vh;
 .faq-item.active {
   background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.02);
   box-shadow: inset 4px 0 0 var(--primary-color);
-  /* Remove border when active to prevent double border effect */
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .faq-item.active .faq-question {
   background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.03);
 }
 
-/* Add a visual separator between active item and next item */
 .faq-item.active + .faq-item {
   border-top: 1px solid rgba(var(--border-color-rgb, 229, 231, 235), 0.8);
 }
 
-/* FAQ Question */
 .faq-question {
   width: 100%;
   padding: 1.8rem 2rem;
@@ -264,7 +258,6 @@ height: 100vh;
   letter-spacing: -0.2px;
 }
 
-/* FAQ Toggle */
 .faq-toggle {
   width: 44px;
   height: 44px;
@@ -289,7 +282,6 @@ height: 100vh;
   height: 20px;
 }
 
-/* FAQ Answer */
 .faq-answer {
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -320,7 +312,6 @@ height: 100vh;
   font-weight: 400;
 }
 
-/* Information Footer */
 .faq-info-footer {
   text-align: center;
   padding: 2.5rem 0 0;
@@ -368,7 +359,6 @@ height: 100vh;
   transform: scaleX(1);
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -404,7 +394,6 @@ height: 100vh;
 .faq-item:nth-child(6) { animation-delay: 0.6s; }
 .faq-item:nth-child(7) { animation-delay: 0.7s; }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .faq-hero {
     height: 100vh;
@@ -462,8 +451,7 @@ height: 100vh;
     font-size: 1rem;
   }
   
-  /* Adjust border for mobile */
-  .faq-item {
+    .faq-item {
     border-bottom-width: 2px;
   }
   
@@ -509,8 +497,7 @@ height: 100vh;
     font-size: 1rem;
   }
   
-  /* Simplify borders for mobile */
-  .faq-item {
+    .faq-item {
     border-bottom: 1px solid rgba(var(--border-color-rgb, 229, 231, 235), 0.6);
   }
   
@@ -523,7 +510,6 @@ height: 100vh;
   }
 }
 
-/* Print Styles */
 @media print {
   .faq-hero {
     height: auto;

@@ -60,62 +60,18 @@
   font-weight: 300;
 }
 
-.concierge-btn {
-  padding: 14px 28px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  letter-spacing: 0.5px;
-}
 
-.concierge-btn-primary {
-  background: var(--primary-color);
-  color: var(--white);
-}
 
-.concierge-btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(42, 127, 98, 0.3);
-}
 
-.concierge-btn-secondary {
-  background: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-}
 
-.concierge-btn-secondary:hover {
-  background: var(--primary-color);
-  color: var(--white);
-  transform: translateY(-3px);
-}
 
-.concierge-btn-large {
-  padding: 18px 36px;
-  font-size: 1.2rem;
-}
 
-.concierge-btn-text {
-  font-size: 1.1rem;
-}
 
-.concierge-btn-icon {
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
 
-.concierge-btn-primary:hover .concierge-btn-icon {
-  transform: translateX(4px);
-}
 
-/* Hero Section */
+
+
+
 .concierge-hero {
   height: 100vh;
   min-height: 700px;
@@ -200,7 +156,6 @@
   opacity: 0.9;
 }
 
-/* Pricing Section */
 .concierge-pricing {
   background: var(--background-light);
 }
@@ -333,7 +288,6 @@
   border-bottom: none;
 }
 
-/* Benefits Section */
 .concierge-benefits {
   background: var(--white);
 }
@@ -428,7 +382,6 @@
   margin: 0;
 }
 
-/* Features Section */
 .concierge-features {
   background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
 }
@@ -515,7 +468,6 @@
   transform: scale(1.05);
 }
 
-/* Investment Section */
 .concierge-investment {
   background: var(--white);
 }
@@ -589,7 +541,6 @@
   opacity: 0.95;
 }
 
-/* Results Section - UPDATED WITH IMAGES */
 .concierge-results {
   background: var(--background-light);
 }
@@ -710,7 +661,6 @@
   font-style: italic;
 }
 
-/* Responsive Design */
 @media (max-width: 992px) {
   .concierge-section {
     padding: 60px 0;
@@ -833,16 +783,8 @@
     padding: 25px 20px;
   }
   
-  .concierge-btn {
-    padding: 12px 20px;
-    font-size: 0.9rem;
-  }
-  
-  .concierge-btn-large {
-    padding: 15px 25px;
-    font-size: 1rem;
-  }
-  
+
+
   .concierge-result-card {
     padding: 25px 20px;
   }
@@ -857,7 +799,6 @@
   }
 }
 
-/* Animations */
 @keyframes concierge-fadeInUp {
   from {
     opacity: 0;

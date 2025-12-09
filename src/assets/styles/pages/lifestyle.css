@@ -1,4 +1,3 @@
-/* Import App.css variables */
 @import url('../../../App.css');
 
 .lifestyle-page {
@@ -15,9 +14,6 @@
   padding: 0 20px;
 }
 
-/* ============================================
-   HERO SECTION
-============================================= */
 .lifestyle-hero {
     
   height: 100vh;
@@ -36,17 +32,23 @@
 }
 
 .lifestyle-hero-image-container {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
+   position: absolute;
+  top: 0;
+  object-fit: stretch;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .lifestyle-hero-img {
+ position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: brightness(0.8);
-  transition: transform 0.6s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .lifestyle-hero-image-container:hover .lifestyle-hero-img {
@@ -136,9 +138,6 @@
   margin-top: 20px;
 }
 
-/* ============================================
-   INTRODUCTION SECTION
-============================================= */
 .lifestyle-intro {
   padding: 100px 0;
 background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
@@ -172,9 +171,6 @@ background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
   margin-bottom: 0;
 }
 
-/* ============================================
-   SECTIONS STYLING
-============================================= */
 .lifestyle-section {
   padding: 100px 0;
   position: relative;
@@ -236,7 +232,6 @@ background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
   margin-bottom: 0;
 }
 
-/* Alternating background colors */
 .lifestyle-vitamins {
   background: var(--white);
 }
@@ -249,9 +244,6 @@ background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
   background: var(--white);
 }
 
-/* ============================================
-   SERVICES GRID
-============================================= */
 .lifestyle-services {
   padding: 100px 0;
    background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
@@ -310,9 +302,6 @@ background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
   line-height: 1.6;
 }
 
-/* ============================================
-   CTA SECTION
-============================================= */
 .lifestyle-cta {
   padding: 80px 0;
   background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
@@ -338,9 +327,6 @@ background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
   line-height: 1.6;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-============================================= */
 
 @media (max-width: 1200px) {
   .lifestyle-hero-main-title {
@@ -502,9 +488,6 @@ background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
   }
 }
 
-/* ============================================
-   ANIMATIONS
-============================================= */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -528,9 +511,6 @@ background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
   animation: fadeInUp 0.8s ease-out;
 }
 
-/* ============================================
-   CUSTOM SCROLLBAR
-============================================= */
 .lifestyle-page::-webkit-scrollbar {
   width: 10px;
 }
@@ -548,7 +528,6 @@ background: linear-gradient(135deg, var(--background-light) 0%, #f1f5f9 100%);
   background: rgba(34, 72, 136, 0.8);
 }
 
-/* For Firefox */
 .lifestyle-page {
   scrollbar-width: thin;
   scrollbar-color: rgba(34, 72, 136, 0.6) transparent;

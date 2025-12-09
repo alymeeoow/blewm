@@ -1,4 +1,3 @@
-/* about.css */
 
 @import url('../../../App.css');
 
@@ -61,7 +60,6 @@
   font-weight: 300;
 }
 
-/* Hero Section */
 .about-hero {
   height: 100vh;
   min-height: 500px;
@@ -135,17 +133,14 @@
   opacity: 0.95;
 }
 
-/* Overview Section - Better Balanced */
 .about-overview {
   background: var(--background-light);
 }
 
 .about-overview-content {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr; /* Give text more space (60/40 split) */
-  gap: 60px;
-  align-items: start; /* Align to top for better balance */
-}
+  grid-template-columns: 1.2fr 0.8fr;   gap: 60px;
+  align-items: start; }
 
 .about-overview-text {
   padding-right: 20px;
@@ -235,7 +230,6 @@
   transform: scale(1.05);
 }
 
-/* Mission Section */
 .about-mission {
   background: linear-gradient(135deg, var(--primary-color-light) 0%, var(--primary-color) 100%);
 }
@@ -275,7 +269,6 @@
   margin: 0;
 }
 
-/* Leadership Section */
 .about-leadership {
   background: var(--white);
 }
@@ -286,7 +279,6 @@
   gap: 40px;
 }
 
-/* Leader Card with Consistent Button Positioning */
 .about-leader-card {
   background: var(--background-light);
   border-radius: var(--radius-lg);
@@ -297,8 +289,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 800px; /* Set minimum height for consistency */
-}
+  min-height: 800px; }
 
 .about-leader-card:hover {
   transform: translateY(-8px);
@@ -310,8 +301,7 @@
   position: relative;
   height: 400px;
   overflow: hidden;
-  flex-shrink: 0; /* Prevent image from shrinking */
-}
+  flex-shrink: 0; }
 
 .about-leader-img {
   width: 100%;
@@ -341,9 +331,7 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
-  flex: 1; /* Take up remaining space */
-  min-height: 350px; /* Ensure consistent content area height */
-}
+  flex: 1;   min-height: 350px; }
 
 .about-leader-name {
   font-size: 1.4rem;
@@ -390,36 +378,12 @@
   line-height: 1.5;
   margin: 0;
   margin-bottom: 20px;
-  flex-grow: 1; /* Allow bio to grow and push button down */
-}
+  flex-grow: 1; }
 
-/* Learn More Button with Consistent Positioning */
-.about-learn-more-btn {
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: var(--radius-md);
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: auto; /* Push button to bottom */
-  align-self: flex-start;
-  width: 100%; /* Make button full width */
-  text-align: center;
-}
 
-.about-learn-more-btn:hover {
-  background: var(--primary-color-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
 
-/* Expertise Section */
+
+
 .about-expertise {
   background: var(--background-light);
   border-top: 1px solid var(--border-color);
@@ -462,7 +426,6 @@
   margin: 0;
 }
 
-/* Icon Styles */
 .about-highlight-icon,
 .about-mission-icon,
 .about-expertise-icon,
@@ -473,7 +436,6 @@
   margin-bottom: 1rem;
 }
 
-/* All icons use the primary color */
 .about-highlight-icon svg,
 .about-mission-icon svg,
 .about-expertise-icon svg,
@@ -481,7 +443,6 @@
   color: var(--primary-color);
 }
 
-/* Sizing */
 .about-highlight-icon svg,
 .about-expertise-icon svg {
   width: 2.5rem;
@@ -498,7 +459,6 @@
   height: 3.5rem;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .about-highlight-icon svg,
   .about-mission-icon svg,
@@ -513,7 +473,6 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 992px) {
   .about-section {
     padding: 60px 0;
@@ -541,8 +500,7 @@
   }
   
   .about-overview-img {
-    height: 400px; /* Adjust height for mobile */
-  }
+    height: 400px;   }
   
   .about-mission-content {
     grid-template-columns: 1fr;
@@ -558,8 +516,7 @@
   }
   
   .about-leader-card {
-    min-height: 750px; /* Adjust for mobile */
-  }
+    min-height: 750px;   }
   
   .about-expertise-grid {
     grid-template-columns: 1fr;
@@ -645,7 +602,6 @@
   }
 }
 
-/* Animations */
 @keyframes about-fadeInUp {
   from {
     opacity: 0;

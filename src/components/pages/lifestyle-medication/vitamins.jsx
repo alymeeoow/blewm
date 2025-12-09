@@ -1,8 +1,17 @@
 import React from 'react';
 import '../../../assets/styles/pages/vitamins.css';
-import Vitamins from "../../../assets/images/vitamins/inject.png";
-import VitaminsProd from "../../../assets/images/vitamins/vit-products.png";
-import Footer from '../../pages/footer'
+
+import Vitamins from "../../../assets/images/vitamins/inject.webp";
+import Energy from "../../../assets/images/vitamins/energy.webp";
+import EnhancedImmunity from "../../../assets/images/vitamins/enhanced-immunity.webp";
+
+import MentalClarity from "../../../assets/images/vitamins/mental-clarity.webp";
+
+import Sleep from "../../../assets/images/vitamins/sleep.webp";
+
+import VitaminsProd from "../../../assets/images/vitamins/vit-products.webp";
+import Footer from '../layout/footer'
+import Button from '../../ui/button'
 
 const VitaminsPage = () => {
   const handleBuyNow = () => {
@@ -12,8 +21,7 @@ const VitaminsPage = () => {
     
   return (
     <div className="vitamins-page">
-      {/* Hero Section */}
-      <section className="vitamins-hero">
+            <section className="vitamins-hero">
         <div className="vitamins-hero-image-container">
           <div
             className="vitamins-hero-image"
@@ -30,11 +38,9 @@ const VitaminsPage = () => {
         </div>
       </section>
 
-      {/* Content Sections */}
-      <div className="vitamins-content">
+            <div className="vitamins-content">
         
-        {/* Intro Section - WITHOUT RIGHT-SIDE IMAGE */}
-        <section className="vitamins-section vitamins-intro">
+                <section className="vitamins-section vitamins-intro">
           <div className="vitamins-container">
             <div className="vitamins-section-header">
               <h2 className="vitamins-section-title">
@@ -54,8 +60,7 @@ const VitaminsPage = () => {
                 <strong>Vitamin injections skip the digestive system entirely</strong>, delivering nutrients directly to your cells where they're needed most.
               </p>
               
-              {/* Stats Section */}
-              <div className="vitamins-stats">
+                            <div className="vitamins-stats">
                 <div className="vitamins-stat">
                   <span className="vitamins-stat-number">100%</span>
                   <span className="vitamins-stat-label">Absorption Rate</span>
@@ -70,13 +75,11 @@ const VitaminsPage = () => {
                 </div>
               </div>
               
-              {/* Benefits Grid - LARGER IMAGES */}
-              <div className="vitamins-benefits-grid">
+                            <div className="vitamins-benefits-grid">
                 <div className="vitamins-benefit">
                   <div className="vitamins-benefit-icon">
                     <img 
-                      src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80"
-                      alt="Energy Boost" 
+                   src={Energy}
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="white"><path d="M13 2v6h6v2h-6v6h-2v-6H5V8h6V2h2z"/></svg>';
@@ -92,7 +95,7 @@ const VitaminsPage = () => {
                 <div className="vitamins-benefit">
                   <div className="vitamins-benefit-icon">
                     <img 
-                      src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80"
+                      src={EnhancedImmunity}
                       alt="Enhanced Immunity" 
                       onError={(e) => {
                         e.target.onerror = null;
@@ -109,7 +112,7 @@ const VitaminsPage = () => {
                 <div className="vitamins-benefit">
                   <div className="vitamins-benefit-icon">
                     <img 
-                      src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80"
+                     src={MentalClarity}
                       alt="Mental Clarity" 
                       onError={(e) => {
                         e.target.onerror = null;
@@ -126,7 +129,7 @@ const VitaminsPage = () => {
                 <div className="vitamins-benefit">
                   <div className="vitamins-benefit-icon">
                     <img 
-                      src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=500&q=80"
+                       src={Sleep}
                       alt="Better Recovery" 
                       onError={(e) => {
                         e.target.onerror = null;
@@ -141,16 +144,14 @@ const VitaminsPage = () => {
                 </div>
               </div>
               
-              {/* CTA Text */}
-              <p className="vitamins-cta-text">
+                            <p className="vitamins-cta-text">
                 Perfect for busy professionals, athletes, and anyone seeking optimal wellness without the wait.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Product Section */}
-        <section className="vitamins-section vitamins-product">
+                <section className="vitamins-section vitamins-product">
           <div className="vitamins-container">
             <div className="vitamins-section-header">
               <h2 className="vitamins-section-title">Featured Vitamin Product</h2>
@@ -201,13 +202,16 @@ const VitaminsPage = () => {
                   </div>
                   <span className="vitamins-savings">Save 32%</span>
                 </div>
-                <button 
-                  className="vitamins-btn vitamins-btn-primary"
-                  onClick={handleBuyNow}
-                >
-                  <span className="vitamins-btn-text">Buy Now </span>
-                  <span className="vitamins-btn-icon">→</span>
-                </button>
+               <Button
+  variant="primary"
+  size="large"
+  color="var(--primary-color)"
+  onClick={handleBuyNow}
+  fullWidth={false}
+>
+  <span className="vitamins-btn-text">Buy Now </span>
+  <span className="vitamins-btn-icon">→</span>
+</Button>
               </div>
             </div>
           </div>
