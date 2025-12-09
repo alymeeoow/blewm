@@ -1,9 +1,23 @@
 import React from 'react';
 import '../../../assets/styles/pages/peptides.css';
-import PeptidesDrop from "../../../assets/images/peptides/peptides-drops.png";
-import MuscleRecovery from "../../../assets/images/peptides/muscle.png";
-import PeptidesProduct from "../../../assets/images/peptides/peptides-product.png";
-import Footer from '../../pages/footer'
+import PeptidesDrop from "../../../assets/images/peptides/peptides-drops.webp";
+import MuscleRecovery from "../../../assets/images/peptides/muscle.webp";
+import Enhanced from "../../../assets/images/peptides/enhanced.webp";
+import Cellular from "../../../assets/images/peptides/cellular.webp";
+import WeightManagement from "../../../assets/images/peptides/weight-management.webp";
+import AntiAging from "../../../assets/images/peptides/anti-aging.webp";
+import Immune from "../../../assets/images/peptides/immune.webp";
+import Inject from "../../../assets/images/peptides/inject.webp";
+import Capsule from "../../../assets/images/peptides/capsule.webp";
+import Application from "../../../assets/images/peptides/application.webp";
+import Button from '../../ui/button'
+
+
+
+
+import Metabolic from "../../../assets/images/peptides/metabolic.webp";
+import PeptidesProduct from "../../../assets/images/peptides/peptides-product.webp";
+import Footer from '../layout/footer'
 
 const PeptidesPage = () => {
   const handleBuyNow = () => {
@@ -13,8 +27,7 @@ const PeptidesPage = () => {
     
   return (
     <div className="peptides-page">
-      {/* Hero Section */}
-      <section className="peptides-hero">
+            <section className="peptides-hero">
         <div className="peptides-hero-image-container">
           <div
             className="peptides-hero-image"
@@ -31,11 +44,9 @@ const PeptidesPage = () => {
         </div>
       </section>
 
-      {/* Content Sections */}
-      <div className="peptides-content">
+            <div className="peptides-content">
         
-        {/* Benefits Section */}
-        <section className="peptides-section peptides-benefits">
+                <section className="peptides-section peptides-benefits">
           <div className="peptides-container">
             <div className="peptides-section-header">
               <h2 className="peptides-section-title">
@@ -46,7 +57,7 @@ const PeptidesPage = () => {
               <div className="peptides-card">
                 <div className="peptides-card-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" 
+                    src={Enhanced}
                     alt="Recovery Icon"
                     className="peptides-icon-img"
                   />
@@ -58,7 +69,7 @@ const PeptidesPage = () => {
               <div className="peptides-card">
                 <div className="peptides-card-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" 
+                    src= {Metabolic}
                     alt="Metabolism Icon"
                     className="peptides-icon-img"
                   />
@@ -70,7 +81,7 @@ const PeptidesPage = () => {
               <div className="peptides-card">
                 <div className="peptides-card-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" 
+                    src={Cellular}
                     alt="Cellular Health Icon"
                     className="peptides-icon-img"
                   />
@@ -82,8 +93,7 @@ const PeptidesPage = () => {
           </div>
         </section>
 
-        {/* Therapy Applications */}
-        <section className="peptides-section peptides-therapy">
+                <section className="peptides-section peptides-therapy">
           <div className="peptides-container">
             <div className="peptides-section-header">
               <h2 className="peptides-section-title">
@@ -97,7 +107,7 @@ const PeptidesPage = () => {
               <div className="peptides-card">
                 <div className="peptides-card-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" 
+                    src={WeightManagement}
                     alt="Weight Management Icon"
                     className="peptides-icon-img"
                   />
@@ -125,7 +135,7 @@ const PeptidesPage = () => {
               <div className="peptides-card">
                 <div className="peptides-card-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" 
+                    src={AntiAging}
                     alt="Anti-Aging Icon"
                     className="peptides-icon-img"
                   />
@@ -139,7 +149,7 @@ const PeptidesPage = () => {
               <div className="peptides-card">
                 <div className="peptides-card-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" 
+                   src={Immune}
                     alt="Immune Support Icon"
                     className="peptides-icon-img"
                   />
@@ -153,8 +163,7 @@ const PeptidesPage = () => {
           </div>
         </section>
 
-        {/* Delivery Methods */}
-        <section className="peptides-section peptides-delivery">
+                <section className="peptides-section peptides-delivery">
           <div className="peptides-container">
             <div className="peptides-section-header">
               <h2 className="peptides-section-title">
@@ -165,7 +174,7 @@ const PeptidesPage = () => {
               <div className="peptides-card">
                 <div className="peptides-card-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" 
+                     src={Inject}
                     alt="Injection Icon"
                     className="peptides-icon-img"
                   />
@@ -177,7 +186,7 @@ const PeptidesPage = () => {
               <div className="peptides-card">
                 <div className="peptides-card-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" 
+                  src={Capsule}
                     alt="Oral Medicine Icon"
                     className="peptides-icon-img"
                   />
@@ -189,7 +198,7 @@ const PeptidesPage = () => {
               <div className="peptides-card">
                 <div className="peptides-card-icon">
                   <img 
-                    src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" 
+                    src={Application}
                     alt="Topical Cream Icon"
                     className="peptides-icon-img"
                   />
@@ -201,8 +210,7 @@ const PeptidesPage = () => {
           </div>
         </section>
 
-        {/* Science Section */}
-        <section className="peptides-section peptides-science">
+                <section className="peptides-section peptides-science">
           <div className="peptides-container">
             <div className="peptides-section-header">
               <h2 className="peptides-section-title">
@@ -233,8 +241,7 @@ const PeptidesPage = () => {
           </div>
         </section>
 
-        {/* Product Section */}
-        <section className="peptides-section peptides-product">
+                <section className="peptides-section peptides-product">
           <div className="peptides-container">
             <div className="peptides-section-header">
               <h2 className="peptides-section-title">
@@ -278,13 +285,17 @@ const PeptidesPage = () => {
                   </div>
                   <span className="peptides-savings">Save 35%</span>
                 </div>
-                <button 
-                  className="peptides-btn peptides-btn-primary"
-                  onClick={handleBuyNow}
-                >
-                  <span className="peptides-btn-text">Buy Now</span>
-                  <span className="peptides-btn-icon">→</span>
-                </button>
+                <Button
+  variant="primary"
+  size="large"
+  color="var(--primary-color)"
+  onClick={handleBuyNow}
+  fullWidth={false}
+  icon="→"  // You can use arrow as icon
+  iconPosition="right"
+>
+  Buy Now
+</Button>
               </div>
             </div>
           </div>

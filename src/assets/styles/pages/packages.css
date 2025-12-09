@@ -56,45 +56,13 @@
   line-height: 1.6;
 }
 
-/* Buttons */
-.packages-btn {
-  padding: 14px 28px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-}
 
-.packages-btn-primary {
-  background: var(--primary-color);
-  color: var(--white);
-}
 
-.packages-btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(var(--primary-color-rgb, 59, 130, 246), 0.3);
-}
 
-.packages-btn-secondary {
-  background: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-}
 
-.packages-btn-secondary:hover {
-  background: var(--primary-color);
-  color: var(--white);
-  transform: translateY(-3px);
-}
 
-/* Hero Section with Image */
+
+
 .packages-hero {
   height: 100vh;
   min-height: 700px;
@@ -166,7 +134,6 @@
   opacity: 0.95;
 }
 
-/* Notice Banner */
 .packages-notice {
   background: var(--white);
   color: var(--primary-color-dark);
@@ -181,7 +148,6 @@
   box-shadow: 0 4px 15px rgba(var(--primary-color-rgb, 59, 130, 246), 0.1);
 }
 
-/* Packages Grid - 2x2 Layout */
 .packages-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -197,7 +163,6 @@
   }
 }
 
-/* Package Card with Images */
 .package-card {
   background: var(--white);
   border-radius: 16px;
@@ -236,7 +201,6 @@
   z-index: 2;
 }
 
-/* Package Header with Image - FIXED */
 .package-header {
   position: relative;
   height: 300px;
@@ -284,7 +248,6 @@
   margin-bottom: 0.5rem;
 }
 
-/* Package Price */
 .package-price-container {
   margin: 0.5rem 0;
 }
@@ -304,7 +267,6 @@
   display: inline-block;
 }
 
-/* Package Content */
 .package-content {
   padding: 2rem;
   flex: 1;
@@ -313,7 +275,6 @@
   width: 100%;
 }
 
-/* Features List */
 .package-features {
   flex: 1;
   margin-bottom: 1.5rem;
@@ -359,7 +320,6 @@
   border-bottom: none;
 }
 
-/* Package Info Card */
 .package-info {
   background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.05);
   border-left: 3px solid var(--primary-color);
@@ -392,7 +352,6 @@
   width: 100%;
 }
 
-/* NAD+ Section */
 .nad-section {
   background: var(--white);
   padding: 4rem 0;
@@ -423,7 +382,6 @@
   }
 }
 
-/* NAD+ Cards - Same style as main packages */
 .nad-card {
   background: var(--white);
   border-radius: 16px;
@@ -462,7 +420,6 @@
   z-index: 2;
 }
 
-/* NAD+ Header with Image - FIXED */
 .nad-header {
   position: relative;
   height: 300px;
@@ -510,7 +467,6 @@
   margin-bottom: 0.5rem;
 }
 
-/* NAD+ Price */
 .nad-price-container {
   margin: 0.5rem 0;
 }
@@ -530,7 +486,6 @@
   display: inline-block;
 }
 
-/* NAD+ Content */
 .nad-content {
   padding: 2rem;
   flex: 1;
@@ -539,7 +494,6 @@
   width: 100%;
 }
 
-/* NAD+ Features */
 .nad-features {
   flex: 1;
   margin-bottom: 1.5rem;
@@ -567,7 +521,6 @@
   width: 100%;
 }
 
-/* NAD+ Info Card */
 .nad-info {
   background: rgba(16, 185, 129, 0.05);
   border-left: 3px solid #10B981;
@@ -598,7 +551,6 @@
   margin-bottom: 0;
 }
 
-/* NAD+ Footer */
 .nad-footer {
   margin-top: auto;
   padding-top: 1.5rem;
@@ -626,7 +578,6 @@
   box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
 }
 
-/* Expiration Info */
 .expiration-info {
   background: rgba(245, 158, 11, 0.1);
   border: 1px solid rgba(245, 158, 11, 0.3);
@@ -651,7 +602,6 @@
   margin: 0;
 }
 
-/* Important Notice */
 .important-notice {
   background: var(--white);
   border-left: 4px solid var(--primary-color);
@@ -683,7 +633,6 @@
   color: var(--primary-color);
 }
 
-/* Responsive Design - Fixed for mobile */
 @media (max-width: 768px) {
   .packages-hero {
     height: 100vh;
@@ -723,8 +672,7 @@
     font-size: 1.8rem;
   }
   
-  /* Ensure cards and images take full width on mobile */
-  .packages-grid,
+    .packages-grid,
   .nad-grid {
     width: 100%;
     max-width: 100%;
@@ -821,7 +769,6 @@
   }
 }
 
-/* Animations */
 @keyframes packages-fadeInUp {
   from {
     opacity: 0;

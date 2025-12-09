@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { FaTimes, FaUniversity, FaBriefcase, FaFilm, FaMicrophone, FaGraduationCap, FaAward, FaBook, FaStethoscope, FaHeart, FaUsers, FaHospital, FaHeartbeat } from 'react-icons/fa';
 import '../../assets/styles/modals/medicalLeaders.css';
-import DrGreg from "../../assets/images/about/dr-greg.png";
-import DrSosa from "../../assets/images/about/dr-sosa.png";
-import DrJoel from "../../assets/images/about/dr-joel.png";
+import DrGreg from "../../assets/images/about/dr-greg.webp";
+import DrSosa from "../../assets/images/about/dr-sosa.webp";
+import DrJoel from "../../assets/images/about/dr-joel.webp";
 
 const MedicalLeaderModal = ({ leader, isOpen, onClose }) => {
   useEffect(() => {

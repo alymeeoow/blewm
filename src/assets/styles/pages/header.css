@@ -14,6 +14,37 @@ html {
   font-family: 'Avenir Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
+/* Body blur effect when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+body.menu-open::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Blur the header container when menu is open */
+body.menu-open .header .container > *:not(.menu-btn):not(.nav-links) {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  transition: filter 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .header {
   width: 100%;
   background: rgba(240, 240, 240, 0.98);
@@ -243,16 +274,7 @@ html {
   }
 }
 
-/* Mobile/Tablet: Show when active class is present */
-@media (max-width: 1024px) {
-  .dropdown-menu.open,
-  .book-now-dropdown-menu.open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-}
-
+/* Dropdown Menu Items */
 .dropdown-menu a {
   display: block;
   padding: 14px 28px;
@@ -371,7 +393,7 @@ html {
   cursor: pointer;
   padding: 12px;
   border-radius: 8px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
   display: none;
   margin-left: 25px;
   z-index: 1002;
@@ -379,6 +401,12 @@ html {
 
 .menu-btn:hover {
   background-color: rgba(34, 72, 136, 0.12);
+}
+
+.menu-btn.open {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .hamburger {
@@ -393,29 +421,36 @@ html {
   transform: rotate(90deg);
 }
 
-/* ============ TABLET & MOBILE MENU (1024px and below) ============ */
+/* ============ MOBILE & TABLET STYLES (1024px and below) ============ */
 @media (max-width: 1024px) {
+  /* Navigation menu - side drawer */
   .nav-links {
-    display: none;
     position: fixed;
-    top: 120px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 120px);
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
-    padding: 0;
+    -webkit-backdrop-filter: blur(10px);
+    padding: 140px 0 60px;
     gap: 0;
     overflow-y: auto;
+    overflow-x: hidden;
     z-index: 1001;
     margin: 0;
     box-sizing: border-box;
     flex-direction: column;
+    align-items: stretch;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+    border-left: 1px solid rgba(34, 72, 136, 0.1);
+    -webkit-overflow-scrolling: touch;
   }
   
   .nav-links.open {
-    display: flex !important;
-    animation: slideDown 0.3s ease;
+    right: 0;
   }
   
   .menu-btn {
@@ -435,46 +470,12 @@ html {
     padding: 0 30px;
     min-height: 120px;
   }
-}
-
-/* iPad-specific adjustments */
-@media (max-width: 1024px) and (min-height: 1024px) {
-  .nav-links {
-    height: calc(100vh - 120px);
-    overflow-y: auto;
-  }
   
+  /* Mobile menu items */
   .nav-links > a,
   .dropdown-btn,
   .book-now-btn {
-    padding: 25px 30px;
-    font-size: 19px;
-  }
-  
-  .dropdown-menu a,
-  .book-now-dropdown-menu a,
-  .book-now-dropdown-menu button {
-    padding: 20px 30px 20px 40px;
-    font-size: 17px;
-  }
-}
-
-/* Mobile specific styles (768px and below) */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-    min-height: 120px;
-  }
-
-  .nav-links {
-    top: 120px;
-    height: calc(100vh - 120px);
-  }
-
-  .nav-links > a,
-  .dropdown-btn,
-  .book-now-btn {
-    padding: 20px 25px;
+    padding: 20px 30px;
     font-size: 18px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     width: 100%;
@@ -490,8 +491,9 @@ html {
     background: none;
     border: none;
     cursor: pointer;
+    border-radius: 0;
   }
-
+  
   /* Mobile: Remove hover effects and use click only */
   .nav-links > a:hover,
   .dropdown-btn:hover,
@@ -499,7 +501,7 @@ html {
     background-color: transparent;
     color: #333;
   }
-
+  
   /* Mobile: Active state for clicked items */
   .nav-links > a.active,
   .dropdown-btn.active,
@@ -507,7 +509,7 @@ html {
     color: #224888;
     background-color: rgba(34, 72, 136, 0.08);
   }
-
+  
   /* Dropdown containers */
   .dropdown-container,
   .book-now-dropdown {
@@ -519,7 +521,7 @@ html {
     padding: 0;
     box-sizing: border-box;
   }
-
+  
   /* Dropdown menus - positioned static for mobile, 100% width */
   .dropdown-menu,
   .book-now-dropdown-menu {
@@ -539,19 +541,20 @@ html {
     display: block;
     box-sizing: border-box;
     margin: 0;
+    min-width: unset;
   }
-
+  
   .dropdown-menu.open,
   .book-now-dropdown-menu.open {
     max-height: 500px;
     padding: 0;
     border-left: 4px solid #224888;
   }
-
+  
   .dropdown-menu a,
   .book-now-dropdown-menu a,
   .book-now-dropdown-menu button {
-    padding: 18px 25px 18px 35px;
+    padding: 18px 30px 18px 40px;
     font-size: 16px;
     text-align: left;
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
@@ -562,24 +565,31 @@ html {
     box-sizing: border-box;
     margin: 0;
   }
-
+  
   .dropdown-menu a:last-child,
   .book-now-dropdown-menu a:last-child,
   .book-now-dropdown-menu button:last-child {
     border-bottom: none;
   }
-
+  
   .dropdown-menu a:hover,
   .book-now-dropdown-menu a:hover,
   .book-now-dropdown-menu button:hover {
     background: rgba(34, 72, 136, 0.08);
     color: #224888;
-    padding-left: 40px;
+    padding-left: 45px;
   }
-
+  
+  /* Book Now specific mobile styles */
+  .book-now-dropdown {
+    margin-left: 0;
+    margin-top: 20px;
+    order: 99; /* Ensure Book Now appears last */
+  }
+  
   .book-now-btn {
     margin-left: 0;
-    padding: 20px 25px;
+    padding: 20px 30px;
     font-size: 18px;
     width: 100%;
     margin: 0;
@@ -588,24 +598,20 @@ html {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     background: #224888;
     color: white;
+    font-weight: 600;
   }
   
-  .book-now-dropdown {
-    margin-left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
   .book-now-dropdown-menu {
     margin-top: 0;
     width: 100%;
+    right: unset;
+    left: 0;
   }
-
+  
   .book-now-dropdown-menu .divider {
-    margin: 15px 25px;
+    margin: 15px 30px;
   }
-
+  
   .dropdown-icon {
     transition: transform 0.3s ease;
     margin-left: 8px;
@@ -613,21 +619,139 @@ html {
     width: 20px;
     height: 20px;
   }
-
+  
   .dropdown-btn.active .dropdown-icon,
   .book-now-btn.active .dropdown-icon {
     transform: rotate(180deg);
   }
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+/* iPad-specific adjustments */
+@media (max-width: 1024px) and (min-height: 1024px) {
+  .nav-links {
+    width: 70%;
+    max-width: 350px;
+    padding: 160px 0 60px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .nav-links > a,
+  .dropdown-btn,
+  .book-now-btn {
+    padding: 25px 35px;
+    font-size: 19px;
+  }
+  
+  .dropdown-menu a,
+  .book-now-dropdown-menu a,
+  .book-now-dropdown-menu button {
+    padding: 22px 35px 22px 45px;
+    font-size: 17px;
+  }
+  
+  .book-now-dropdown {
+    margin-top: 30px;
+  }
+}
+
+/* Mobile specific styles (768px and below) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+    min-height: 110px;
+  }
+
+  .nav-links {
+    width: 80%;
+    padding: 130px 0 60px;
+  }
+
+  .nav-links > a,
+  .dropdown-btn,
+  .book-now-btn {
+    padding: 18px 25px;
+    font-size: 17px;
+  }
+
+  
+  .dropdown-menu a,
+  .book-now-dropdown-menu a,
+  .book-now-dropdown-menu button {
+    padding: 16px 25px 16px 35px;
+    font-size: 16px;
+  }
+  
+  .book-now-btn {
+    padding: 18px 25px;
+    font-size: 17px;
+  }
+
+  .book-now-dropdown-menu .divider {
+    margin: 12px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+    min-height: 120px;
+  }
+
+  .nav-links {
+    width: 80%;
+    padding: 120px 0 60px;
+  }
+
+  .nav-links > a,
+  .dropdown-btn,
+  .book-now-btn {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+
+  .dropdown-menu a,
+  .book-now-dropdown-menu a,
+  .book-now-dropdown-menu button {
+    padding: 14px 20px 14px 30px;
+    font-size: 15px;
+  }
+  
+  .book-now-btn {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+
+  .book-now-dropdown-menu .divider {
+    margin: 10px 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    min-height: 120px;
+  }
+
+  .nav-links {
+    width: 80%;
+    padding: 100px 0 60px;
+  }
+
+  .nav-links > a,
+  .dropdown-btn,
+  .book-now-btn {
+    padding: 14px 15px;
+    font-size: 15px;
+  }
+
+  .dropdown-menu a,
+  .book-now-dropdown-menu a,
+  .book-now-dropdown-menu button {
+    padding: 12px 15px 12px 25px;
+    font-size: 14px;
+  }
+  
+  .book-now-btn {
+    padding: 14px 15px;
+    font-size: 15px;
   }
 }
 
@@ -679,68 +803,4 @@ html {
   .logo {
     margin-right: 40px;
   }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-    min-height: 120px;
-  }
-
-  .nav-links {
-    top: 120px;
-    height: calc(100vh - 120px);
-  }
-
-  .nav-links > a,
-  .dropdown-btn,
-  .book-now-btn {
-    padding: 18px 20px;
-    font-size: 17px;
-  }
-
-  .dropdown-menu a,
-  .book-now-dropdown-menu a,
-  .book-now-dropdown-menu button {
-    padding: 16px 20px 16px 30px;
-    font-size: 16px;
-  }
-  
-  .book-now-btn {
-    padding: 18px 20px;
-    font-size: 17px;
-  }
-
-  .book-now-dropdown-menu .divider {
-    margin: 12px 20px;
-  }
-}
-
-@media (max-width: 360px) {
-  .container {
-    min-height: 120px;
-  }
-
-  .nav-links > a,
-  .dropdown-btn,
-  .book-now-btn {
-    padding: 16px 15px;
-    font-size: 16px;
-  }
-
-  .dropdown-menu a,
-  .book-now-dropdown-menu a,
-  .book-now-dropdown-menu button {
-    padding: 14px 15px 14px 25px;
-    font-size: 15px;
-  }
-  
-  .book-now-btn {
-    padding: 16px 15px;
-    font-size: 16px;
-  }
-}
-
-body.menu-open {
-  overflow: hidden;
 }

@@ -1,6 +1,5 @@
 @import url('../../../App.css');
 
-/* Modal Overlay */
 .contact-form-modal-overlay {
   position: fixed;
   top: 0;
@@ -17,7 +16,6 @@
   padding: 1rem;
 }
 
-/* Modal Container - Larger on mobile */
 .contact-form-modal {
   background: var(--white);
   border-radius: 12px;
@@ -26,12 +24,11 @@
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  animation: slideUp 0.3s ease-out;
+
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   margin: 1rem;
 }
 
-/* Close Button - Clean X without border */
 .contact-form-close-btn {
   position: absolute;
   top: 20px;
@@ -61,7 +58,6 @@
   transform: rotate(90deg) scale(1.1);
 }
 
-/* Modal Header */
 .contact-form-header {
   padding: 1.75rem 1.5rem 1rem;
   border-bottom: 1px solid var(--border-color);
@@ -83,12 +79,10 @@
   margin: 0;
 }
 
-/* Form Container */
 .contact-form {
   padding: 1.5rem;
 }
 
-/* Form Rows */
 .form-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -96,7 +90,6 @@
   margin-bottom: 0;
 }
 
-/* On tablets and up, use 2 columns */
 @media (min-width: 640px) {
   .form-row {
     grid-template-columns: 1fr 1fr;
@@ -104,7 +97,6 @@
   }
 }
 
-/* Form Groups */
 .form-group {
   margin-bottom: 1.25rem;
 }
@@ -117,7 +109,6 @@
   margin-bottom: 0.4rem;
 }
 
-/* Form Inputs */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -146,7 +137,6 @@
   opacity: 0.8;
 }
 
-/* Select styling */
 .form-group select {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
@@ -162,7 +152,6 @@
   line-height: 1.4;
 }
 
-/* Form Actions */
 .form-actions {
   display: flex;
   flex-direction: column;
@@ -179,7 +168,6 @@
   }
 }
 
-/* Buttons */
 .contact-btn {
   padding: 0.875rem 1.5rem;
   font-size: 1rem;
@@ -198,14 +186,12 @@
   gap: 0.75rem;
 }
 
-/* Mobile-specific icon spacing */
 @media (max-width: 480px) {
   .contact-btn {
     gap: 0.75rem;
   }
 }
 
-/* Extra spacing for very small screens */
 @media (max-width: 350px) {
   .contact-btn {
     gap: 0.5rem;
@@ -238,7 +224,6 @@
   color: var(--text-dark);
 }
 
-/* Success Message */
 .form-success-message {
   text-align: center;
   padding: 2rem 1.5rem;
@@ -273,30 +258,10 @@
   margin-bottom: 1.5rem;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* Responsive Design */
 
-/* Mobile devices (up to 480px) - Larger modal */
+
 @media (max-width: 480px) {
   .contact-form-modal {
     max-width: 92%;
@@ -322,8 +287,7 @@
     min-height: 44px;
   }
   
-  /* Larger close button for mobile */
-  .contact-form-close-btn {
+    .contact-form-close-btn {
     width: 36px;
     height: 36px;
     font-size: 1.8rem;
@@ -332,7 +296,6 @@
   }
 }
 
-/* Very small screens (less than 350px) */
 @media (max-width: 350px) {
   .contact-form-modal {
     max-width: 94%;
@@ -355,7 +318,6 @@
   }
 }
 
-/* Small tablets and large phones (640px and up) */
 @media (min-width: 640px) {
   .contact-form-modal {
     max-width: 550px;
@@ -378,8 +340,7 @@
     font-size: 1.05rem;
   }
   
-  /* Slightly larger close button for tablets */
-  .contact-form-close-btn {
+    .contact-form-close-btn {
     width: 36px;
     height: 36px;
     font-size: 1.6rem;
@@ -388,7 +349,6 @@
   }
 }
 
-/* Tablets and small laptops (768px and up) */
 @media (min-width: 768px) {
   .contact-form-modal {
     max-width: 600px;
@@ -407,7 +367,6 @@
   }
 }
 
-/* Desktop (1024px and up) */
 @media (min-width: 1024px) {
   .contact-form-modal {
     max-width: 650px;
@@ -420,14 +379,12 @@
   }
 }
 
-/* Large screens (1200px and up) */
 @media (min-width: 1200px) {
   .contact-form-modal {
     max-width: 700px;
   }
 }
 
-/* Landscape orientation on phones */
 @media (max-height: 500px) and (orientation: landscape) {
   .contact-form-modal {
     max-height: 90vh;
@@ -451,7 +408,6 @@
   }
 }
 
-/* Fix for iOS Safari */
 @supports (-webkit-touch-callout: none) {
   .contact-form-modal {
     max-height: -webkit-fill-available;
@@ -460,11 +416,9 @@
   .form-group input,
   .form-group select,
   .form-group textarea {
-    font-size: 16px; /* Prevents iOS zoom on focus */
-  }
+    font-size: 16px;   }
 }
 
-/* Better touch targets for mobile */
 @media (pointer: coarse) {
   .contact-btn {
     min-height: 48px;

@@ -1,19 +1,19 @@
 import React from 'react';
 import '../../../assets/styles/pages/weightloss.css';
-import Footer from '../../pages/footer'
+import Footer from '../layout/footer'
 
-
+import Button from '../../ui/button'
 import WeightLoss from "../../../assets/images/weight-loss/weight-loss.webp";
 
-import ApetiteControl from "../../../assets/images/weight-loss/apetite-control.png";
+import ApetiteControl from "../../../assets/images/weight-loss/apetite-control.webp";
 
-import MetabolicSupport from "../../../assets/images/weight-loss/metabolic-support.png";
+import MetabolicSupport from "../../../assets/images/weight-loss/metabolic-support.webp";
 
-import SustainableResult from "../../../assets/images/weight-loss/sustainable-result.png";
-import Consult from "../../../assets/images/weight-loss/consult.png";
-import Segmalutide from "../../../assets/images/weight-loss/segmalutide.png";
-import SegmalutideSerum from "../../../assets/images/weight-loss/segmalutide-serum.png";
-import Tirzepatide from "../../../assets/images/weight-loss/tirzepatide.png";
+import SustainableResult from "../../../assets/images/weight-loss/sustainable-result.webp";
+import Consult from "../../../assets/images/weight-loss/consult.webp";
+import Segmalutide from "../../../assets/images/weight-loss/segmalutide.webp";
+import SegmalutideSerum from "../../../assets/images/weight-loss/segmalutide-serum.webp";
+import Tirzepatide from "../../../assets/images/weight-loss/tirzepatide.webp";
 
 
 const WeightLossPage = () => {
@@ -22,15 +22,11 @@ const WeightLossPage = () => {
     alert('Redirecting to checkout...');
   };
 
-  const handleLearnMore = () => {
-    console.log('Learn More clicked');
-    alert('Redirecting to information page...');
-  };
+
   
   return (
     <div className="weightloss-page">
-      {/* Hero Section */}
-      <section className="weightloss-hero">
+            <section className="weightloss-hero">
         <div className="weightloss-hero-image-container">
           <div
             className="weightloss-hero-image"
@@ -46,11 +42,9 @@ const WeightLossPage = () => {
         </div>
       </section>
 
-      {/* Content Sections */}
-      <div className="weightloss-content">
+            <div className="weightloss-content">
         
-        {/* Introduction Section */}
-        <section className="weightloss-section weightloss-intro">
+                <section className="weightloss-section weightloss-intro">
           <div className="weightloss-container">
             <div className="weightloss-section-header">
               <h2 className="weightloss-section-title">
@@ -74,8 +68,7 @@ const WeightLossPage = () => {
           </div>
         </section>
 
-        {/* Semaglutide Section */}
-        <section className="weightloss-section weightloss-semaglutide">
+                <section className="weightloss-section weightloss-semaglutide">
           <div className="weightloss-container">
             <div className="weightloss-semaglutide-content">
               <div className="weightloss-semaglutide-image">
@@ -103,8 +96,7 @@ const WeightLossPage = () => {
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section className="weightloss-section weightloss-how-it-works">
+                <section className="weightloss-section weightloss-how-it-works">
           <div className="weightloss-container">
             <div className="weightloss-section-header">
               <h2 className="weightloss-section-title">
@@ -162,8 +154,7 @@ const WeightLossPage = () => {
           </div>
         </section>
 
-        {/* Product Section */}
-        <section className="weightloss-section weightloss-product">
+                <section className="weightloss-section weightloss-product">
           <div className="weightloss-container">
             <div className="weightloss-section-header">
               <h2 className="weightloss-section-title">
@@ -207,13 +198,16 @@ const WeightLossPage = () => {
                     </div>
                     <span className="weightloss-savings">Save 24%</span>
                   </div>
-                  <button 
-                    className="weightloss-btn weightloss-btn-primary"
-                    onClick={handleBuyNow}
-                  >
-                    <span className="weightloss-btn-text">Start Now</span>
-                    <span className="weightloss-btn-icon">→</span>
-                  </button>
+                 <Button
+  variant="primary"
+  size="large"
+  color="var(--primary-color)"
+  onClick={handleBuyNow}
+  fullWidth={false}
+>
+  <span className="weightloss-btn-text">Start Now</span>
+  <span className="weightloss-btn-icon">→</span>
+</Button>
                 </div>
               </div>
               
@@ -254,13 +248,16 @@ const WeightLossPage = () => {
                     </div>
                     <span className="weightloss-savings">Save 29%</span>
                   </div>
-                  <button 
-                    className="weightloss-btn weightloss-btn-primary"
-                    onClick={handleBuyNow}
-                  >
-                    <span className="weightloss-btn-text">Buy Now</span>
-                    <span className="weightloss-btn-icon">→</span>
-                  </button>
+                 <Button
+  variant="primary"
+  size="large"
+  color="var(--primary-color)"
+  onClick={handleBuyNow}
+  fullWidth={false}
+>
+  <span className="weightloss-btn-text">Buy Now</span>
+  <span className="weightloss-btn-icon">→</span>
+</Button>
                 </div>
               </div>
             </div>

@@ -1,4 +1,3 @@
-/* vitamins.css - WITHOUT RIGHT-SIDE IMAGE */
 
 @import url('../../../App.css');
 
@@ -60,43 +59,14 @@
   font-weight: 300;
 }
 
-.vitamins-btn {
-  padding: 14px 28px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  letter-spacing: 0.5px;
-}
 
-.vitamins-btn-primary {
-  background: var(--primary-color);
-  color: var(--white);
-}
 
-.vitamins-btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(42, 127, 98, 0.3);
-}
 
-.vitamins-btn-text {
-  font-size: 1.1rem;
-}
 
-.vitamins-btn-icon {
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
 
-.vitamins-btn-primary:hover .vitamins-btn-icon {
-  transform: translateX(4px);
-}
+
+
+
 
 .vitamins-hero {
   height: 100vh;
@@ -187,8 +157,6 @@
   background: var(--background-light);
 }
 
-/* REMOVED: .vitamins-intro-content grid layout */
-/* Content now takes full width since there's no right-side image */
 
 .vitamins-intro-text {
   max-width: 900px;
@@ -262,9 +230,6 @@
   line-height: 1.3;
 }
 
-/* ============================================
-   BENEFITS GRID - FULL WIDTH
-============================================= */
 .vitamins-benefits-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -372,7 +337,6 @@
   font-weight: 500;
 }
 
-/* REMOVED: .vitamins-intro-image styles */
 
 .vitamins-product {
   background: var(--background-light);
@@ -514,9 +478,6 @@
   letter-spacing: 0.5px;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-============================================= */
 @media (max-width: 1200px) {
   .vitamins-hero-title {
     font-size: 4rem;
@@ -758,11 +719,8 @@
     padding: 0 16px;
   }
   
-  .vitamins-btn {
-    padding: 14px 24px;
-    font-size: 1rem;
-  }
-  
+
+
   .vitamins-benefit-icon {
     width: 120px;
     height: 120px;
@@ -791,9 +749,6 @@
   }
 }
 
-/* ============================================
-   ANIMATIONS
-============================================= */
 
 
 @keyframes vitamins-iconGlow {
