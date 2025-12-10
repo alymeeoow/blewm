@@ -191,6 +191,23 @@ const Header = () => {
     }
   };
 
+  // Handle clicking on the text part of dropdown button (mobile only)
+  const handleDropdownTextClick = (e, service) => {
+    if (isMobile) {
+      e.stopPropagation();
+      navigate(service.path);
+      handleNavClick();
+    }
+  };
+
+  // Handle clicking on the dropdown arrow/container (mobile only)
+  const handleDropdownArrowClick = (e, index) => {
+    if (isMobile) {
+      e.stopPropagation();
+      handleMobileClick('service', index);
+    }
+  };
+
   useEffect(() => {
     const handleClickOutsideMobile = (event) => {
       if (!isMobile || !menuOpen) return;
@@ -348,24 +365,61 @@ const Header = () => {
             >
               <button 
                 className={`dropdown-btn ${openDropdown === index ? 'active' : ''} ${isServiceActive(service.path) ? 'active-page' : ''}`}
-                onClick={() => handleDropdownButtonClick(index, service)}
+                onClick={(e) => {
+                  // On mobile, clicking anywhere on button toggles dropdown
+                  // But text click will be handled separately
+                  if (!isMobile) {
+                    navigate(service.path);
+                    handleNavClick();
+                  }
+                }}
                 onMouseEnter={() => !isMobile && handleDropdownMouseEnter(index)}
               >
-                {service.name}
-                <svg 
-                  className={`dropdown-icon ${openDropdown === index ? 'open' : ''}`}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24" 
-                  xmlns="http://www.w3.org/2000/svg"
+                {/* Text part - clickable to navigate on mobile */}
+                <span 
+                  className="dropdown-text"
+                  onClick={(e) => {
+                    if (isMobile) {
+                      e.stopPropagation();
+                      navigate(service.path);
+                      handleNavClick();
+                    }
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isMobile) {
+                      e.stopPropagation();
+                      handleDropdownMouseEnter(index);
+                    }
+                  }}
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M19 9l-7 7-7-7" 
-                  />
-                </svg>
+                  {service.name}
+                </span>
+                
+                {/* Arrow part - clickable to toggle dropdown on mobile */}
+                <div 
+                  className="dropdown-arrow-container"
+                  onClick={(e) => {
+                    if (isMobile) {
+                      e.stopPropagation();
+                      handleMobileClick('service', index);
+                    }
+                  }}
+                >
+                  <svg 
+                    className={`dropdown-icon ${openDropdown === index ? 'open' : ''}`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M19 9l-7 7-7-7" 
+                    />
+                  </svg>
+                </div>
               </button>
               
               <div className={`dropdown-menu ${openDropdown === index ? 'open' : ''}`}>
@@ -394,24 +448,53 @@ const Header = () => {
           >
             <button 
               className={`dropdown-btn ${learnMoreOpen ? 'active' : ''} ${learnMoreItems.some(item => location.pathname === item.path) ? 'active-page' : ''}`}
-              onClick={() => handleMobileClick('learnMore')}
+              onClick={(e) => {
+                if (!isMobile) {
+                  // On desktop, don't navigate - just show dropdown on hover
+                  handleLearnMoreMouseEnter();
+                }
+              }}
               onMouseEnter={() => !isMobile && handleLearnMoreMouseEnter()}
             >
-              Learn More
-              <svg 
-                className={`dropdown-icon ${learnMoreOpen ? 'open' : ''}`}
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24" 
-                xmlns="http://www.w3.org/2000/svg"
+              {/* Text part - clickable to navigate on mobile */}
+              <span 
+                className="dropdown-text"
+                onClick={(e) => {
+                  if (isMobile) {
+                    e.stopPropagation();
+                    // For "Learn More", navigate to first item or show dropdown
+                    handleMobileClick('learnMore');
+                  }
+                }}
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M19 9l-7 7-7-7" 
-                />
-              </svg>
+                Learn More
+              </span>
+              
+              {/* Arrow part - clickable to toggle dropdown on mobile */}
+              <div 
+                className="dropdown-arrow-container"
+                onClick={(e) => {
+                  if (isMobile) {
+                    e.stopPropagation();
+                    handleMobileClick('learnMore');
+                  }
+                }}
+              >
+                <svg 
+                  className={`dropdown-icon ${learnMoreOpen ? 'open' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M19 9l-7 7-7-7" 
+                  />
+                </svg>
+              </div>
             </button>
             
             <div className={`dropdown-menu ${learnMoreOpen ? 'open' : ''}`}>
@@ -455,29 +538,54 @@ const Header = () => {
           >
             <button 
               className={`book-now-btn ${bookNowOpen ? 'active' : ''} ${location.pathname.startsWith('/book-now') ? 'active-page' : ''}`}
-              onClick={() => {
-                handleMobileClick('bookNow');
-                if (!isMobile || bookNowOpen) {
-                  navigateToBooking();
+              onClick={(e) => {
+                if (!isMobile) {
+                  // On desktop, navigate to book-now page
+                  navigate('/book-now');
+                  handleNavClick();
                 }
               }}
               onMouseEnter={() => !isMobile && handleBookNowMouseEnter()}
             >
-              Book Now
-              <svg 
-                className={`dropdown-icon ${bookNowOpen ? 'open' : ''}`}
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24" 
-                xmlns="http://www.w3.org/2000/svg"
+              {/* Text part - clickable to navigate on mobile */}
+              <span 
+                className="dropdown-text"
+                onClick={(e) => {
+                  if (isMobile) {
+                    e.stopPropagation();
+                    navigate('/book-now');
+                    handleNavClick();
+                  }
+                }}
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M19 9l-7 7-7-7" 
-                />
-              </svg>
+                Book Now
+              </span>
+              
+              {/* Arrow part - clickable to toggle dropdown on mobile */}
+              <div 
+                className="dropdown-arrow-container"
+                onClick={(e) => {
+                  if (isMobile) {
+                    e.stopPropagation();
+                    handleMobileClick('bookNow');
+                  }
+                }}
+              >
+                <svg 
+                  className={`dropdown-icon ${bookNowOpen ? 'open' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24" 
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M19 9l-7 7-7-7" 
+                  />
+                </svg>
+              </div>
             </button>
             
             <div className={`book-now-dropdown-menu ${bookNowOpen ? 'open' : ''}`}>

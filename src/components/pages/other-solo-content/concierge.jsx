@@ -362,7 +362,7 @@ const ConciergePage = () => {
               </p>
               <div className="concierge-result-person">
                 <span className="concierge-result-name">— Arpyra V.</span>
-                <span className="concierge-result-role">Business Man, 23</span>
+                <span className="concierge-result-role">Business Woman, 23</span>
               </div>
             </div>
           </div>
