@@ -2,7 +2,7 @@ import React from 'react';
 import '../../../assets/styles/pages/imTherapy.css';
 import { FaClock, FaSyringe, FaCheck, FaArrowRight, FaTag } from 'react-icons/fa';
 import PackageProduct2 from "../../../assets/images/package/product.webp"
-import IMTheraphyHero from "../../../assets/images/im-therapy/wellness.webp"
+import IMTheraphyHero from "../../../assets/images/im-therapy/im-therapy-hero.webp"
 import Footer from '../layout/footer'
 import Button from '../../ui/button'
 const IMTherapy = () => {

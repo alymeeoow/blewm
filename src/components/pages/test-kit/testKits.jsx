@@ -1,7 +1,8 @@
 import React from 'react';
 import '../../../assets/styles/pages/kits.css';
 import Footer from '../layout/footer'
-import TestKits from "../../../assets/images/kits/test-kits.webp"
+import TestKits from "../../../assets/images/kits/testing-kit-hero.webp"
+import TestingKitProduct from "../../../assets/images/kits/test-kits.webp"
 import Button from '../../ui/button'
 
 const TestKitsPage = () => {
@@ -61,7 +62,7 @@ const TestKitsPage = () => {
             <div className="testkits-category-card">
               <div className="testkits-category-icon">
                 <img 
-                  src={TestKits}
+                  src={TestingKitProduct}
                   alt="Peptides Testing"
                   className="testkits-category-img"
                 />
@@ -85,7 +86,7 @@ const TestKitsPage = () => {
             <div className="testkits-category-card">
               <div className="testkits-category-icon">
                 <img 
-                  src={TestKits}
+                  src={TestingKitProduct}
                   alt="Sleep and Stress Testing"
                   className="testkits-category-img"
                 />
@@ -109,7 +110,7 @@ const TestKitsPage = () => {
             <div className="testkits-category-card">
               <div className="testkits-category-icon">
                 <img 
-                  src={TestKits}
+                src={TestingKitProduct}
                   alt="Men's Health Testing"
                   className="testkits-category-img"
                 />
@@ -133,7 +134,7 @@ const TestKitsPage = () => {
             <div className="testkits-category-card">
               <div className="testkits-category-icon">
                 <img 
-                  src={TestKits}
+                    src={TestingKitProduct}
                   alt="Weight Loss Testing"
                   className="testkits-category-img"
                 />

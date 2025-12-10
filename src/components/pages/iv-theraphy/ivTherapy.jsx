@@ -3,7 +3,7 @@ import '../../../assets/styles/pages/ivTherapy.css';
 import { FaSyringe, FaBolt, FaHeartbeat, FaLeaf, FaDumbbell, FaBrain, FaWeight, FaStar, FaCrown, FaGem, FaCheck, FaTags } from 'react-icons/fa';
 import PackageProduct3 from "../../../assets/images/package/product.webp"
 import Footer from '../layout/footer'
-import IVTheraphyHero from "../../../assets/images/iv-therapy/iv-treatment.webp"
+import IVTheraphyHero from "../../../assets/images/iv-therapy/iv-theraphy-hero.webp"
 import Button from '../../ui/button'
 
 const IVTherapy = () => {
@@ -189,7 +189,7 @@ const IVTherapy = () => {
                   <Button
   variant="primary"
   size="medium"
-  color="var(--elite-color)"
+  color="var(--primary-color)"
   onClick={() => handleBookNow(treatment.title)}
   fullWidth={false}
 >
@@ -253,7 +253,7 @@ const IVTherapy = () => {
                 <Button
   variant="primary"
   size="large"
-  color="var(--elite-color)"
+  color="var(--primary-color)"
   onClick={() => handlePackageClick(eliteSection.package.title)}
   fullWidth={true}
 >
@@ -365,6 +365,15 @@ const IVTherapy = () => {
                     ))}
                   </div>
                 </div>
+                  <Button
+  variant="primary"
+  size="medium"
+  color="var(--primary-color)"
+  onClick={() => handleBookNow(treatment.title)}
+  fullWidth={false}
+>
+  Book Now
+</Button>
                 
                 
               </div>
